@@ -25,11 +25,18 @@ class ProfileFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
         val btnEditProfile = view.findViewById<Button>(R.id.btn_edit_profile)
+        val btnResetPassword = view.findViewById<Button>(R.id.btn_reset_password)
 
         btnEditProfile.setOnClickListener {
             val fragment = EditProfileFragment()
             val transaction = fragmentManager?.beginTransaction()
             transaction?.replace(R.id.frame_container,fragment)?.commit()
+        }
+
+        btnResetPassword.setOnClickListener {
+            val fragment = ResetPasswordFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frame_container, fragment)?.commit()
         }
 
         // Get the currently authenticated user
