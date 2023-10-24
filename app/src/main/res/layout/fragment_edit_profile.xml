@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".EditProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -19,7 +18,7 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/profileHeader"
+            android:id="@+id/updateProfileHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -28,7 +27,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/imgView_profileLogo"
+                android:id="@+id/imgView_UpdateProfileLogo"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/imgapplogo"
@@ -43,46 +42,19 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="160dp"
-                android:layout_toEndOf="@+id/imgView_profileLogo"
-                android:text="My Profile"
+                android:layout_toEndOf="@+id/imgView_UpdateProfileLogo"
+                android:text="Update Profile"
                 android:textAlignment="textEnd"
                 android:textColor="@color/dark_blue"
                 android:textSize="20dp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imgView_profileLogo"
+                app:layout_constraintStart_toEndOf="@+id/imgView_UpdateProfileLogo"
                 app:layout_constraintTop_toTopOf="parent">
 
             </TextView>
-
-            <EditText
-                android:id="@+id/editText_welcome_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_profile"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="130dp"
-                android:layout_toEndOf="@+id/imgView_profileLogo"
-                android:background="@null"
-                android:shadowColor="@color/black"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="5"
-                android:text=""
-                android:textAlignment="textEnd"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.9"
-                app:layout_constraintStart_toEndOf="@+id/imgView_profileLogo"
-                app:layout_constraintTop_toBottomOf="@+id/tv_profile"
-                app:layout_constraintVertical_bias="0.0">
-
-            </EditText>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -94,7 +66,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileHeader"
+            app:layout_constraintTop_toBottomOf="@+id/updateProfileHeader"
             app:layout_constraintVertical_bias="0.147">
 
             <androidx.cardview.widget.CardView
@@ -115,147 +87,118 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_profile_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
                         android:text="Name"
                         android:textColor="@color/light_blue"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"></TextView>
 
                     <EditText
-                        android:id="@+id/edtText_profile_name"
+                        android:id="@+id/edtText_update_profile_name"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text=""
+                        android:layout_height="35dp"
+                        android:drawablePadding="8dp"
+                        android:background="@drawable/user_edittext"
+                        android:padding="8dp"
                         android:textColor="@color/dark_blue"
-                        android:textStyle="bold" />
+                        android:textColorHighlight="@color/black" />
 
                     <TextView
-                        android:id="@+id/tv_profile_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:paddingTop="16dp"
                         android:text="Email"
                         android:textColor="@color/light_blue"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"></TextView>
 
                     <EditText
-                        android:id="@+id/edtText_profile_email"
+                        android:id="@+id/edtText_update_profile_email"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text=""
+                        android:layout_height="35dp"
+                        android:drawablePadding="8dp"
+                        android:inputType="textEmailAddress"
+                        android:background="@drawable/user_edittext"
+                        android:padding="8dp"
                         android:textColor="@color/dark_blue"
-                        android:textStyle="bold" />
+                        android:textColorHighlight="@color/black" />
+
 
                     <TextView
-                        android:id="@+id/tv_profile_mobile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Mobile No"
+                        android:paddingTop="16dp"
+                        android:text="Mobile Number"
                         android:textColor="@color/light_blue"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"></TextView>
 
                     <EditText
-                        android:id="@+id/edtText_profile_mobile"
+                        android:id="@+id/edtText_update_profile_mobile"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:text=""
+                        android:layout_height="35dp"
+                        android:drawablePadding="8dp"
+                        android:background="@drawable/user_edittext"
+                        android:inputType="phone"
+                        android:padding="8dp"
                         android:textColor="@color/dark_blue"
-                        android:textStyle="bold" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:orientation="horizontal">
-
-                        <Button
-                            android:id="@+id/btn_edit_profile"
-                            android:layout_width="@dimen/btnWidth"
-                            android:layout_height="@dimen/btnHeight"
-                            android:backgroundTint="@color/bg_blue"
-                            android:text="Edit Profile"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/btn_reset_password"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.0"></Button>
-
-                        <Button
-                            android:id="@+id/btn_reset_password"
-                            android:layout_width="@dimen/btnWidth"
-                            android:layout_height="@dimen/btnHeight"
-                            android:backgroundTint="@color/bg_blue"
-                            android:text="Reset Password"
-                            android:textColor="@color/black"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/btn_edit_profile"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintVertical_bias="0.0"></Button>
-
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:textColorHighlight="@color/black" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp">
+                        android:layout_marginTop="20dp">
 
                         <Button
-                            android:id="@+id/btn_profile_donation_history"
-                            android:layout_width="@dimen/btnWidthLong"
-                            android:layout_height="wrap_content"
+                            android:id="@+id/btnUpdateProfileSave"
+                            android:layout_width="@dimen/btnWidth"
+                            android:layout_height="@dimen/btnHeight"
                             android:backgroundTint="@color/dark_blue"
-                            android:text="My Donation History"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
+                            android:text="Save"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/btnUpdateProfileBack"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"></Button>
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp">
 
                         <Button
-                            android:id="@+id/btn_logout"
+                            android:id="@+id/btnUpdateProfileBack"
                             android:layout_width="@dimen/btnWidth"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/btnHeight"
+                            android:text="Cancel"
+                            android:backgroundTint="@color/bg_blue"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btnUpdateProfileSave"
+                            app:layout_constraintTop_toTopOf="parent"></Button>
+
+                        <Button
+                            android:id="@+id/btnDeleteProfile"
+                            android:layout_width="@dimen/btnWidthLong"
+                            android:layout_height="@dimen/btnHeight"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
                             android:backgroundTint="@color/red"
-                            android:text="Logout"
+                            android:text="Delete My Account"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"></Button>
+                            app:layout_constraintTop_toBottomOf="@+id/btnUpdateProfileBack"></Button>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 
                 </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
 
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </FrameLayout>

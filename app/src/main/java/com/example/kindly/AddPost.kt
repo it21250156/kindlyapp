@@ -7,58 +7,67 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.kindly.backend.CharityDB
-import com.example.kindly.databinding.ActivityAddCharityBinding
+import com.example.kindly.backend.Post
+import com.example.kindly.databinding.ActivityAddPostBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.FirebaseDatabase
 
-
-class AddCharity : AppCompatActivity() {
+class AddPost : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST = 1
-    private lateinit var binding: ActivityAddCharityBinding
+    private lateinit var binding: ActivityAddPostBinding
     private lateinit var database: FirebaseDatabase
     private var imageUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddCharityBinding.inflate(layoutInflater)
+        binding = ActivityAddPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.ivAdminCharImg.setOnClickListener {
+        binding.ivAdminPostImg.setOnClickListener {
             openFileChooser()
         }
 
         database = FirebaseDatabase.getInstance()
-        val charitiesRef = database.reference.child("charities")
 
-        binding.BtnAddCharity.setOnClickListener {
-            val name = binding.edtTextAdminCharName.text.toString()
-            val address = binding.edtTextAdminCharAddress.text.toString()
-            val contact = binding.edtTextAdminCharContact.text.toString()
-            val email = binding.edtTextAdminCharEmail.text.toString()
-            val description = binding.edtTextAdminCharDescription.text.toString()
+        binding.btnAddPost.setOnClickListener {
+            // Retrieve input values
+            val name = binding.edtTextPostName.text.toString()
+            val description = binding.edtTextPostDescription.text.toString()
 
-            if (name.isEmpty() || address.isEmpty() || contact.isEmpty() || email.isEmpty() || description.isEmpty()) {
+            // Check if any of the fields are empty
+            if (name.isEmpty() || description.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             if (imageUri != null) {
-                val charityRef = charitiesRef.push()
-                val imageUrl = imageUri.toString()
-                val charityData = CharityDB(name, address, contact, email, description, imageUrl)
+                // You can create a reference to a specific "posts" node in Firebase
+                val postsRef = database.reference.child("posts")
 
-                charityRef.setValue(charityData).addOnCompleteListener(OnCompleteListener { task ->
+                // Create a new child node for the post with a unique ID
+                val postRef = postsRef.push()
+
+                // Set the data you want to save
+                val imageUrl = imageUri.toString()
+                val postData = Post(name, description, imageUrl)
+
+                // Save the data to Firebase
+                postRef.setValue(postData).addOnCompleteListener(OnCompleteListener { task ->
                     if (task.isSuccessful) {
+                        // Data saved successfully
                         Toast.makeText(this, "Data saved successfully", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this, CharityManageAdmin::class.java)
+
+                        val intent = Intent(this, PostManageAdmin::class.java)
                         startActivity(intent)
+
                     } else {
+                        // Error occurred while saving data
                         val error = task.exception?.message
                         Toast.makeText(this, "Error occurred: $error", Toast.LENGTH_SHORT).show()
                     }
                 })
             } else {
+                // Handle the case where no image was selected
                 Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
             }
         }
@@ -75,12 +84,7 @@ class AddCharity : AppCompatActivity() {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null) {
             imageUri = data.data
-            binding.ivAdminCharImg.setImageURI(imageUri)
+            binding.ivAdminPostImg.setImageURI(imageUri)
         }
-    }
-
-    fun cancel(view: View) {
-        val intent = Intent(this, CharityManageAdmin::class.java)
-        startActivity(intent)
     }
 }
