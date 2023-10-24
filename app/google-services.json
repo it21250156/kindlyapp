@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "100884180452",
+    "project_id": "kind-ly",
+    "storage_bucket": "kind-ly.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100884180452:android:869ace89e74e433fbcabf1",
+        "android_client_info": {
+          "package_name": "com.example.kindly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoeoY_qPf52QHaz1eRFO2FfRhONjyJeLU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

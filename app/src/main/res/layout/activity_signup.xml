@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:background="@color/white"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/signupImageView"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/imgapplogo">
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/tvSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Signup"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="30dp"
+                    android:textStyle="bold"></TextView>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="Name"
+                android:textColor="@color/light_blue"
+                android:textStyle="bold"></TextView>
+
+            <EditText
+                android:id="@+id/edtText_signup_name"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/user_edittext"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
+                android:textColor="@color/light_blue"
+                android:textColorHighlight="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="Email"
+                android:textColor="@color/light_blue"
+                android:textStyle="bold"></TextView>
+
+            <EditText
+                android:id="@+id/edtText_signup_email"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/user_edittext"
+                android:drawablePadding="8dp"
+                android:inputType="textEmailAddress"
+                android:padding="8dp"
+                android:textColor="@color/light_blue"
+                android:textColorHighlight="@color/black" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="Mobile Number"
+                android:textColor="@color/light_blue"
+                android:textStyle="bold"></TextView>
+
+            <EditText
+                android:id="@+id/edtText_signup_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/user_edittext"
+                android:drawablePadding="8dp"
+                android:inputType="phone"
+                android:padding="8dp"
+                android:textColor="@color/light_blue"
+                android:textColorHighlight="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="Password"
+                android:textColor="@color/light_blue"
+                android:textStyle="bold"></TextView>
+
+            <EditText
+                android:id="@+id/edtText_signup_password"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/user_edittext"
+                android:drawablePadding="8dp"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="@color/light_blue"
+                android:textColorHighlight="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="Confirm Password"
+                android:textColor="@color/light_blue"
+                android:textStyle="bold"></TextView>
+
+            <EditText
+                android:id="@+id/edtText_signup_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/user_edittext"
+                android:drawablePadding="8dp"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="@color/light_blue"
+                android:textColorHighlight="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_login_now"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20px"
+                android:text="Already have an account. Login Now"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btn_signup_register"
+                android:layout_width="@dimen/btnWidth"
+                android:layout_height="@dimen/btnHeight"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/dark_blue"
+                android:text="Register"
+                android:textSize="14sp"></Button>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
