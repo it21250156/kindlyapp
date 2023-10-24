@@ -39,7 +39,7 @@
 
             <TextView
                 android:id="@+id/tv_profile"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
@@ -51,14 +51,15 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/imgView_profileLogo"
                 app:layout_constraintTop_toTopOf="parent">
 
             </TextView>
 
             <EditText
-                android:id="@+id/editText"
-                android:layout_width="wrap_content"
+                android:id="@+id/editText_welcome_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_profile"
                 android:layout_alignParentEnd="true"
@@ -66,18 +67,20 @@
                 android:layout_toEndOf="@+id/imgView_profileLogo"
                 android:background="@null"
                 android:shadowColor="@color/black"
-                android:shadowDx="4"
+                android:shadowDx="2"
                 android:shadowDy="2"
                 android:shadowRadius="5"
-                android:text="Name Name Name"
+                android:text="sdasd"
                 android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textSize="15dp"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.9"
                 app:layout_constraintStart_toEndOf="@+id/imgView_profileLogo"
-                app:layout_constraintTop_toBottomOf="@+id/tv_profile">
+                app:layout_constraintTop_toBottomOf="@+id/tv_profile"
+                app:layout_constraintVertical_bias="0.0">
 
             </EditText>
 
@@ -87,17 +90,20 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileHeader">
+            app:layout_constraintTop_toBottomOf="@+id/profileHeader"
+            app:layout_constraintVertical_bias="0.147">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/rounded_background"
-                app:cardElevation="20dp"
+                android:layout_margin="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -106,7 +112,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
+                    android:layout_margin="15dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -164,19 +170,18 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_margin="10dp">
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
 
                         <Button
                             android:id="@+id/btn_edit_profile"
                             android:layout_width="@dimen/btnWidth"
                             android:layout_height="@dimen/btnHeight"
-                            android:text="Edit Profile"
-                            android:textSize="12dp"
                             android:backgroundTint="@color/bg_blue"
+                            android:text="Edit Profile"
                             android:textColor="@color/black"
+                            android:textSize="12dp"
                             android:textStyle="bold"
-                            android:layout_marginStart="8dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/btn_reset_password"
                             app:layout_constraintStart_toStartOf="parent"
@@ -187,20 +192,58 @@
                             android:id="@+id/btn_reset_password"
                             android:layout_width="@dimen/btnWidth"
                             android:layout_height="@dimen/btnHeight"
-                            android:text="Reset Password"
-                            android:textSize="12dp"
                             android:backgroundTint="@color/bg_blue"
+                            android:text="Reset Password"
                             android:textColor="@color/black"
+                            android:textSize="12dp"
                             android:textStyle="bold"
-                            android:layout_marginEnd="8dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-
                             app:layout_constraintStart_toEndOf="@+id/btn_edit_profile"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0"></Button>
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp">
+
+                        <Button
+                            android:id="@+id/btn_profile_donation_history"
+                            android:layout_width="@dimen/btnWidthLong"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/dark_blue"
+                            android:text="My Donation History"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"></Button>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp">
+
+                        <Button
+                            android:id="@+id/btn_logout"
+                            android:layout_width="@dimen/btnWidth"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/red"
+                            android:text="Logout"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"></Button>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
