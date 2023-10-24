@@ -2,4 +2,5 @@
 <resources>
     <dimen name="btnWidth">150dp</dimen>
     <dimen name="btnHeight">50dp</dimen>
+    <dimen name="btnWidthLong">250dp</dimen>
 </resources>

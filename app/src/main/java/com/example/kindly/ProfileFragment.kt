@@ -40,17 +40,19 @@ class ProfileFragment : Fragment() {
                     // Access and set data in your EditText fields
                     val profileName = data?.get("name") as String // Replace "name" with the actual field name
                     val profileEmail = data?.get("email") as String // Replace "email" with the actual field name
-                    val profileMobileNo: String = data?.get("mobile_number") as? String ?: ""
+                    val profileMobileNo: String = data?.get("mobile_number") as String
 
                     // Find your EditText fields by ID
                     val edtName = view.findViewById<EditText>(R.id.edtText_profile_name)
                     val edtEmail = view.findViewById<EditText>(R.id.edtText_profile_email)
                     val edtMobileNo = view.findViewById<EditText>(R.id.edtText_profile_mobile)
+                    val welcomeName = view.findViewById<EditText>(R.id.editText_welcome_name)
 
                     // Set data to EditText fields
                     edtName.setText(profileName)
                     edtEmail.setText(profileEmail)
                     edtMobileNo.setText(profileMobileNo)
+                    welcomeName.setText(profileName)
                 } else {
                     // The document does not exist, handle accordingly
                 }
