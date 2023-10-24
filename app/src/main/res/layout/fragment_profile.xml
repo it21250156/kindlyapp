@@ -6,9 +6,21 @@
     tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:src="@drawable/imgbg3"
+        android:scaleType="centerCrop"></ImageView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+
+        </ImageView>
+    </RelativeLayout>
 
 </FrameLayout>
