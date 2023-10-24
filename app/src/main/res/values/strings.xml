@@ -5,6 +5,15 @@
     <string name="TvCharities">Charities</string>
     <string name="TvCharity_name">Charity Name</string>
     <string name="TvCharity_description">Charity Description.</string>
+    <string name="SendCharityReqTv">Send Charity Request</string>
+    <string name="NameReqTv">Name/Organization</string>
+    <string name="EmailTv">Email</string>
+    <string name="DescriptionTv">Description</string>
+    <string name="BankDetailsTv">Bank Details</string>
+    <string name="SendBtn">Send</string>
+    <string name="AddPostTv">Add Post</string>
+    <string name="AddImageTv">Add Image</string>
+    <string name="AddPostBtn">Add Post</string>
     <string name="Tvadd_a_new_charity">Add a New Charity</string>
     <string name="Tvname">Name</string>
     <string name="Tvcontact_number">Contact Number</string>
@@ -13,4 +22,6 @@
     <string name="Tvupload_image">Upload Image</string>
     <string name="Btnadd_charity">Add Charity</string>
     <string name="BtnCancel">Cancel</string>
+    <string name="PostsTv">Posts</string>
+    <string name="NameCharTv">Name of the Charity</string>
 </resources>
