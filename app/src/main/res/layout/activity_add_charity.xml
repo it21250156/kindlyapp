@@ -165,7 +165,7 @@
 
 
         <Button
-            android:id="@+id/btn_btn_admin_add_char"
+            android:id="@+id/BtnAddCharity"
             android:layout_width="@dimen/btnWidth"
             android:layout_height="@dimen/btnHeight"
             android:layout_gravity="center"
@@ -182,6 +182,7 @@
             android:layout_height="@dimen/btnHeight"
             android:layout_gravity="center"
             android:backgroundTint="#0097A7"
+            android:onClick="cancel"
             android:text="@string/BtnCancel"
             android:textColor="@color/black"
             android:textSize="14sp">
