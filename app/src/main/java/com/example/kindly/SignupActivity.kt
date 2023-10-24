@@ -65,6 +65,7 @@ class SignupActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
 
                         //abc
+                        //dsjhdkjfhsdfk
 
                         // if com.example.kindly.User sign up successful, update their profile using their name
                         val user = auth.currentUser
