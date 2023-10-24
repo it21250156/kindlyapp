@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.kindly.backend.CharityDB
 import com.example.kindly.databinding.ActivityAddCharityBinding
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import com.google.firebase.database.FirebaseDatabase
 
 class AddCharity : AppCompatActivity() {
