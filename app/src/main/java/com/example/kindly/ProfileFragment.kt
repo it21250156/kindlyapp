@@ -1,11 +1,14 @@
 package com.example.kindly
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -20,6 +23,14 @@ class ProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        val btnEditProfile = view.findViewById<Button>(R.id.btn_edit_profile)
+
+        btnEditProfile.setOnClickListener {
+            val fragment = EditProfileFragment()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frame_container,fragment)?.commit()
+        }
 
         // Get the currently authenticated user
         val user = auth.currentUser
@@ -53,14 +64,28 @@ class ProfileFragment : Fragment() {
                     edtEmail.setText(profileEmail)
                     edtMobileNo.setText(profileMobileNo)
                     welcomeName.setText(profileName)
+
+                    // Make the EditText fields read-only
+                    edtName.isFocusable = false
+                    edtName.isFocusableInTouchMode = false
+                    edtEmail.isFocusable = false
+                    edtEmail.isFocusableInTouchMode = false
+                    edtMobileNo.isFocusable = false
+                    edtMobileNo.isFocusableInTouchMode = false
+                    welcomeName.isFocusable = false
+                    welcomeName.isFocusableInTouchMode = false
                 } else {
-                    // The document does not exist, handle accordingly
+                    // The document does not exist
+                    Toast.makeText(context, "User not found.", Toast.LENGTH_LONG).show()
+
                 }
             }.addOnFailureListener { exception ->
                 // Handle the error
+                Toast.makeText(context, "Error: Failed to retrieve data.", Toast.LENGTH_LONG).show()
             }
         } else {
-            // User is not authenticated, handle accordingly
+            // User is not authenticated
+            Toast.makeText(context, "User is not authenticated. Please log in.", Toast.LENGTH_LONG).show()
         }
 
 
