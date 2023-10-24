@@ -5,14 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class AdminHomeActivity : AppCompatActivity() {
+class CharityManageAdmin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_admin_home)
+        setContentView(R.layout.activity_charity_manage_admin)
     }
 
-    fun CharityManagement(view: View) {
-        val intent = Intent(this, CharityManageAdmin::class.java)
+    fun addcharity(view: View) {
+        val intent = Intent(this, AddCharity::class.java)
         startActivity(intent)
     }
 }
