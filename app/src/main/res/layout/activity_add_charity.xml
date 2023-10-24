@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CADCF1"
+    android:background="@color/bg"
     tools:context=".AddCharity">
 
     <RelativeLayout
@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/dark_blue"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -19,7 +20,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="60dp"
-            android:text="Add a New Charity"
+            android:text="@string/Tvadd_a_new_charity"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="italic">
@@ -30,9 +31,9 @@
     <ImageView
         android:layout_width="106dp"
         android:layout_height="145dp"
-        android:src="@drawable/baseline_school_24"
+        android:src="@drawable/applogo_white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
@@ -50,9 +51,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="Name"
+            android:text="@string/Tvname"
             android:textColor="#0A1551"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtText_admin_CharName"
@@ -66,15 +67,13 @@
             android:textColorHighlight="@color/black" />
 
 
-
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
             android:text="Address"
             android:textColor="#0A1551"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtText_admin_char_address"
@@ -92,9 +91,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="Contact Number"
+            android:text="@string/Tvcontact_number"
             android:textColor="#0A1551"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtText_admin_char_contact"
@@ -112,9 +111,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="Email"
+            android:text="@string/TVemail"
             android:textColor="#0A1551"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtText_admin_char_email"
@@ -132,9 +131,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="Description"
+            android:text="@string/Tvdescription"
             android:textColor="#0A1551"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtText_admin_char_description"
@@ -152,9 +151,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="16dp"
-            android:text="Upload Image"
+            android:text="@string/Tvupload_image"
             android:textColor="#0A1551"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/iv_admin_char_img"
@@ -172,8 +171,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/light_blue"
-            android:onClick="backToCharities"
-            android:text="Add Charity"
+            android:text="@string/Btnadd_charity"
             android:textSize="14sp">
 
         </Button>
@@ -184,8 +182,7 @@
             android:layout_height="@dimen/btnHeight"
             android:layout_gravity="center"
             android:backgroundTint="#0097A7"
-            android:onClick="backToCharities"
-            android:text="Cancel"
+            android:text="@string/BtnCancel"
             android:textColor="@color/black"
             android:textSize="14sp">
 
