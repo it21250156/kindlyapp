@@ -50,34 +50,40 @@ class LoginActivity : AppCompatActivity() {
         val emailInput = email.text.toString()
         val passwordInput = password.text.toString()
 
-        auth.signInWithEmailAndPassword(emailInput, passwordInput)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful){
-                    // navigate user home
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+        if(emailInput=="admin@gmail.com" || passwordInput=="admin1234"){
+            val intent = Intent(this,AdminHomeActivity::class.java)
+            startActivity(intent)
+        } else{
+            auth.signInWithEmailAndPassword(emailInput, passwordInput)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful){
+                        // navigate user home
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
 
+                        Toast.makeText(
+                            baseContext,
+                            "Success",
+                            Toast.LENGTH_SHORT,
+                        ).show()
+                    } else{
+                        //if sign in fails, display a toast
+                        Toast.makeText(
+                            baseContext,
+                            "Authentication Failed",
+                            Toast.LENGTH_SHORT,
+                        ).show()
+                    }
+                }
+                .addOnFailureListener{
                     Toast.makeText(
                         baseContext,
-                        "Success",
-                        Toast.LENGTH_SHORT,
-                    ).show()
-                } else{
-                    //if sign in fails, display a toast
-                    Toast.makeText(
-                        baseContext,
-                        "Authentication Failed",
+                        "Authentication failed. ${it.localizedMessage}",
                         Toast.LENGTH_SHORT,
                     ).show()
                 }
-            }
-            .addOnFailureListener{
-                Toast.makeText(
-                    baseContext,
-                    "Authentication failed. ${it.localizedMessage}",
-                    Toast.LENGTH_SHORT,
-                ).show()
-            }
+        }
+
 
     }
 }

@@ -6,21 +6,25 @@
     tools:context=".ProfileFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/imgbg3"
-        android:scaleType="centerCrop"></ImageView>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp">
-
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/imgapplogo">
         </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="My Profile">
+
+        </TextView>
+
     </RelativeLayout>
 
 </FrameLayout>
