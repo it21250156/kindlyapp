@@ -3,9 +3,12 @@ package com.example.kindly.backend
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kindly.R
+
+import com.squareup.picasso.Picasso
 
 class CharityAdapter(private var charityList: List<CharityDB>) :
     RecyclerView.Adapter<CharityAdapter.CharityViewHolder>() {
@@ -13,7 +16,7 @@ class CharityAdapter(private var charityList: List<CharityDB>) :
     inner class CharityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.tvCharityName)
         val descriptionTextView: TextView = itemView.findViewById(R.id.tvDescription)
-        // Add other views if needed
+        val imageView: ImageView = itemView.findViewById(R.id.ivImage) // Add an ImageView for the image
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharityViewHolder {
@@ -27,6 +30,15 @@ class CharityAdapter(private var charityList: List<CharityDB>) :
 
         holder.nameTextView.text = currentItem.name
         holder.descriptionTextView.text = currentItem.description
+
+        // Load the image using Picasso
+        if (currentItem.imageUri.isNotBlank()) {
+            Picasso.get().load(currentItem.imageUri).into(holder.imageView)
+        } else {
+            // Set a default image or placeholder if no image is provided
+            holder.imageView.setImageResource(R.drawable.baseline_image_24) // Replace with your placeholder image
+        }
+
         // Bind other data as needed
     }
 
@@ -39,3 +51,4 @@ class CharityAdapter(private var charityList: List<CharityDB>) :
         notifyDataSetChanged()
     }
 }
+
