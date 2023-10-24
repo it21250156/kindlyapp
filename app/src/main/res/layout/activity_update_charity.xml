@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_blue"
-    tools:context=".AddCharity">
+    tools:context=".UpdateCharity">
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
@@ -20,7 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="60dp"
-            android:text="@string/Tvadd_a_new_charity"
+            android:text="@string/Tvupdate_charity"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="italic">
@@ -165,26 +164,25 @@
 
 
         <Button
-            android:id="@+id/BtnAddCharity"
+            android:id="@+id/BtnUpdateCharity"
             android:layout_width="@dimen/btnWidth"
             android:layout_height="@dimen/btnHeight"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/light_blue"
-            android:text="@string/Btnadd_charity"
+            android:text="@string/btnUpdate"
             android:textSize="14sp">
 
         </Button>
 
         <Button
-            android:id="@+id/btn_btn_admin_post_cancel"
+            android:id="@+id/btnDelete"
             android:layout_width="@dimen/btnWidth"
             android:layout_height="@dimen/btnHeight"
             android:layout_gravity="center"
-            android:backgroundTint="#0097A7"
-            android:onClick="cancel"
-            android:text="@string/BtnCancel"
-            android:textColor="@color/black"
+            android:backgroundTint="@color/red"
+            android:text="@string/btnDelete"
+            android:textColor="@color/white"
             android:textSize="14sp">
 
         </Button>

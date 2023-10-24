@@ -13,4 +13,7 @@
     <string name="Tvupload_image">Upload Image</string>
     <string name="Btnadd_charity">Add Charity</string>
     <string name="BtnCancel">Cancel</string>
+    <string name="Tvupdate_charity">Update Charity</string>
+    <string name="btnDelete">Delete</string>
+    <string name="btnUpdate">Update</string>
 </resources>
