@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CharityReqPage">
+
+    <LinearLayout
+        android:layout_width="372dp"
+        android:layout_height="565dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="81dp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="55dp">
+
+            <ImageView
+                android:id="@+id/charityReqImageView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/imgapplogo"></ImageView>
+
+            <TextView
+                android:id="@+id/tvCharityReq"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/SendCharityReqTv"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/dark_blue"
+                android:textSize="30dp"
+                android:textStyle="bold"></TextView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/tvCharityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/NameReqTv"
+            android:textColor="@color/light_blue"
+            android:textStyle="bold"></TextView>
+
+        <EditText
+            android:id="@+id/edtText_req_name"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/user_edittext"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:textColor="@color/light_blue"
+            android:textColorHighlight="@color/black" />
+
+        <TextView
+            android:id="@+id/tvCharityEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/EmailTv"
+            android:textColor="@color/light_blue"
+            android:textStyle="bold"></TextView>
+
+        <EditText
+            android:id="@+id/edtText_req_email"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/user_edittext"
+            android:drawablePadding="8dp"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:textColor="@color/light_blue"
+            android:textColorHighlight="@color/black" />
+
+
+        <TextView
+            android:id="@+id/tvCharityDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/DescriptionTv"
+            android:textColor="@color/light_blue"
+            android:textStyle="bold"></TextView>
+
+        <EditText
+            android:id="@+id/edtText_req_description"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/user_edittext"
+            android:drawablePadding="8dp"
+            android:inputType="phone"
+            android:padding="8dp"
+            android:textColor="@color/light_blue"
+            android:textColorHighlight="@color/black" />
+
+        <TextView
+            android:id="@+id/tvBankDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/BankDetailsTv"
+            android:textColor="@color/light_blue"
+            android:textStyle="bold"></TextView>
+
+        <EditText
+            android:id="@+id/edtText_req_bankdetails"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/user_edittext"
+            android:drawablePadding="8dp"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:textColor="@color/light_blue"
+            android:textColorHighlight="@color/black" />
+
+        <Button
+            android:id="@+id/btn_req_send"
+            android:layout_width="@dimen/btnWidth"
+            android:layout_height="@dimen/btnHeight"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/dark_blue"
+            android:text="@string/SendBtn"
+            android:textSize="14sp"></Button>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
