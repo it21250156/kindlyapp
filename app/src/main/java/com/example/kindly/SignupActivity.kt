@@ -64,10 +64,6 @@ class SignupActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
 
-                        //sdfsdfsdfsdfs
-                        //abc
-                        //dsjhdkjfhsdfk
-
                         // if com.example.kindly.User sign up successful, update their profile using their name
                         val user = auth.currentUser
                         val profileUpdates = UserProfileChangeRequest.Builder()
