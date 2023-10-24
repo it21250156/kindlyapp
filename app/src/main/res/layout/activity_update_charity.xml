@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateCharity">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="60dp"
+            android:text="@string/Tvupdate_charity"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="italic">
+
+        </TextView>
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="106dp"
+        android:layout_height="145dp"
+        android:src="@drawable/applogo_white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="597dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#CADCF1"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+        tools:layout_editor_absoluteX="0dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/Tvname"
+            android:textColor="#0A1551"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtText_admin_CharName"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/customer_edittext"
+            android:backgroundTint="#FEFEFE"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="Address"
+            android:textColor="#0A1551"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtText_admin_char_address"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/customer_edittext"
+            android:backgroundTint="#FDFDFD"
+            android:drawablePadding="8dp"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/Tvcontact_number"
+            android:textColor="#0A1551"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtText_admin_char_contact"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/customer_edittext"
+            android:backgroundTint="#FCFCFC"
+            android:drawablePadding="8dp"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/TVemail"
+            android:textColor="#0A1551"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtText_admin_char_email"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/customer_edittext"
+            android:backgroundTint="#FDFDFD"
+            android:drawablePadding="8dp"
+            android:inputType="text|textEmailAddress"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/Tvdescription"
+            android:textColor="#0A1551"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtText_admin_char_description"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/customer_edittext"
+            android:backgroundTint="#FDFDFD"
+            android:drawablePadding="8dp"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/Tvupload_image"
+            android:textColor="#0A1551"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_admin_char_img"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/etfoodcharityDescription"
+            app:srcCompat="@drawable/baseline_image_24" />
+
+
+        <Button
+            android:id="@+id/BtnUpdateCharity"
+            android:layout_width="@dimen/btnWidth"
+            android:layout_height="@dimen/btnHeight"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/light_blue"
+            android:text="@string/btnUpdate"
+            android:textSize="14sp">
+
+        </Button>
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="@dimen/btnWidth"
+            android:layout_height="@dimen/btnHeight"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/red"
+            android:text="@string/btnDelete"
+            android:textColor="@color/white"
+            android:textSize="14sp">
+
+        </Button>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
