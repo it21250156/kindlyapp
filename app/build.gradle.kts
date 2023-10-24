@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.8.0")
@@ -54,6 +55,9 @@ dependencies {
 
     // Add the dependency for the Firebase SDK for Google Analytics
     implementation("com.google.firebase:firebase-analytics-ktx")
+
+    // Add the Picasso library for image loading
+    implementation("com.squareup.picasso:picasso:2.8")
 
     // TODO: Add the dependencies for any other Firebase products you want to use
     // See https://firebase.google.com/docs/android/setup#available-libraries
