@@ -61,25 +61,6 @@
             android:textColor="@color/light_blue"
             android:textColorHighlight="@color/black" />
 
-        <TextView
-            android:id="@+id/tvCharityTopic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:text="@string/TopicPostTv"
-            android:textColor="@color/light_blue"
-            android:textStyle="bold"></TextView>
-
-        <EditText
-            android:id="@+id/edtText_post_topic"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@drawable/user_edittext"
-            android:drawablePadding="8dp"
-            android:padding="8dp"
-            android:textColor="@color/light_blue"
-            android:textColorHighlight="@color/black" />
-
 
         <TextView
             android:id="@+id/tvCharityDescription"
