@@ -21,8 +21,8 @@ class ChatAdapter(private val chatMessages: List<Chat>) : RecyclerView.Adapter<C
     }
 
     override fun onBindViewHolder(holder: ChatViewHolder, position: Int) {
-        // Bind data to views in the ViewHolder
-        val chatMessage = chatMessages[position]
+        // Bind data to views in the ViewHolder starting from the last item in the list
+        val chatMessage = chatMessages[chatMessages.size - position - 1]
         holder.senderName.text = chatMessage.sender
         holder.messageContent.text = chatMessage.message
     }
