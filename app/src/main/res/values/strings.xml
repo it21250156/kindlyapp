@@ -66,6 +66,7 @@
     <string name="hintCreditCardNo">Credit Card Number</string>
     <string name="TopicPostTv">Post Topic</string>
     <string name="PickImageBtn">"Pick an Image "</string>
+    <string name="tvRecentDonations">Recent Donations</string>
 
 
 </resources>
