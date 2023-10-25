@@ -24,7 +24,7 @@
             android:layout_margin="20dp"
             android:layout_marginTop="16dp"
             android:paddingStart="20dp"
-            android:paddingEnd="20dp"
+            android:paddingEnd="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,17 +46,35 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="160dp"
+                android:layout_marginTop="8dp"
                 android:layout_toEndOf="@+id/imgView_chatLogo"
-                android:text="@string/GlobalChattv"
+                android:text="@string/tvChat"
                 android:textAlignment="textEnd"
                 android:textColor="@color/dark_blue"
                 android:textSize="@dimen/txt20"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/imgView_chatLogo"
                 app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:text="@string/tvChatWarning"
+                android:textAlignment="textEnd"
+                android:textColor="@color/red"
+                android:textSize="@dimen/txt12"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/imgView_chatLogo"
+                app:layout_constraintTop_toBottomOf="@+id/tv_chat"
+                app:layout_constraintVertical_bias="0.588">
 
             </TextView>
 
