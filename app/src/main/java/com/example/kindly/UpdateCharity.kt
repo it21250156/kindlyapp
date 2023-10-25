@@ -25,6 +25,7 @@ class UpdateCharity : AppCompatActivity() {
     private lateinit var storageReference: StorageReference
     private lateinit var imageView: ImageView
     private var imageUri: Uri? = null
+    private var isNewImageSelected = false // Track if a new image is selected
 
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
@@ -75,14 +76,11 @@ class UpdateCharity : AppCompatActivity() {
             val updatedEmail = emailEditText.text.toString()
             val updatedDescription = descriptionEditText.text.toString()
 
-            if (updatedName.isNotBlank() && updatedAddress.isNotBlank() && updatedContact.isNotBlank() && updatedEmail.isNotBlank() && updatedDescription.isNotBlank()) {
-                if (imageUri != null) {
-                    uploadImageAndUpdateCharity(charityId, updatedName, updatedAddress, updatedContact, updatedEmail, updatedDescription)
-                } else {
-                    updateCharityData(charityId, updatedName, updatedAddress, updatedContact, updatedEmail, updatedDescription, "")
-                }
+            // Check if a new image is selected
+            if (imageUri != null && isNewImageSelected) {
+                uploadImageAndUpdateCharity(charityId, updatedName, updatedAddress, updatedContact, updatedEmail, updatedDescription)
             } else {
-                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                updateCharityData(charityId, updatedName, updatedAddress, updatedContact, updatedEmail, updatedDescription, imageUri.toString())
             }
         }
 
@@ -105,6 +103,7 @@ class UpdateCharity : AppCompatActivity() {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             imageUri = data.data
+            isNewImageSelected = true // A new image is selected
             if (imageUri != null) {
                 Picasso.get().load(imageUri).into(imageView)
             }
@@ -139,7 +138,7 @@ class UpdateCharity : AppCompatActivity() {
         charityRef.child("contact").setValue(contact)
         charityRef.child("email").setValue(email)
         charityRef.child("description").setValue(description)
-        // Update the image URI
+        // Use the provided image URI or the existing image URI
         charityRef.child("imageUri").setValue(imageUrl)
 
         Toast.makeText(this, "Update Successful", Toast.LENGTH_SHORT).show()
@@ -168,3 +167,6 @@ class UpdateCharity : AppCompatActivity() {
         }
     }
 }
+
+
+

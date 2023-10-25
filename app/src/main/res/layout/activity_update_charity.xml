@@ -140,7 +140,7 @@
                 android:layout_height="35dp"
                 android:background="@drawable/customer_edittext"
                 android:drawablePadding="8dp"
-                android:inputType="text"
+                android:inputType="number"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/black" />
