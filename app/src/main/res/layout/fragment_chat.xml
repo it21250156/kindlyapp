@@ -81,10 +81,11 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:textSize="12dp"
                 android:background="@drawable/user_edittext"
                 android:hint="Type a message"
                 android:textColorHint="@color/light_blue"
@@ -97,6 +98,7 @@
                 android:layout_margin="3dp"
                 android:background="@drawable/baseline_send_24" />
         </LinearLayout>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewChat"
