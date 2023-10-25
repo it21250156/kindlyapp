@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ChatFragment">
 
-    <!-- Your header ImageView -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -30,10 +29,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <!-- Your header contents -->
-
-
-
             <ImageView
                 android:id="@+id/imgView_chatLogo"
                 android:layout_width="60dp"
@@ -51,10 +46,10 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="160dp"
                 android:layout_toEndOf="@+id/imgView_chatLogo"
-                android:text="Global Chat"
+                android:text="@string/GlobalChattv"
                 android:textAlignment="textEnd"
                 android:textColor="@color/dark_blue"
-                android:textSize="20dp"
+                android:textSize="@dimen/txt20"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
