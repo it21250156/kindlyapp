@@ -52,8 +52,8 @@ class CharityPayment : Fragment() {
         emailTextView.text = charityEmail
         mobileNoTextView.text = charityMobile
 
-        // Fetch payment methods from Firestore and populate the spinner
-        fetchPaymentMethods()
+        // Fetch payment methods for the current user and populate the spinner
+        fetchPaymentMethodsForUser()
 
         donateButton.setOnClickListener {
             donateToCharity(charityName ?: "", charityEmail ?: "", charityMobile ?: "")
@@ -62,15 +62,18 @@ class CharityPayment : Fragment() {
         return view
     }
 
-    private fun fetchPaymentMethods() {
-        paymentMethodsCollection.get()
+    private fun fetchPaymentMethodsForUser() {
+        // Filter payment methods for the current user
+        paymentMethodsCollection
+            .whereEqualTo("userId", userId)
+            .get()
             .addOnSuccessListener { result ->
                 if (!result.isEmpty) {
                     val paymentMethods = result.toObjects(PaymentMethodDB::class.java)
-                    // Now you have payment methods, you can set up your spinner with these data.
+                    // Now you have payment methods for the current user, you can set up your spinner.
                     setupSpinner(paymentMethods)
                 } else {
-                    // Handle the case where no payment methods are found.
+                    // Handle the case where no payment methods are found for the user.
                 }
             }
             .addOnFailureListener { exception ->
