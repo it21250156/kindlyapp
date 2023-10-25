@@ -44,6 +44,14 @@
     <string name="Tvcard_no">card no</string>
     <string name="Tvcvv">CVV</string>
     <string name="Btnmy_payment_methods">My Payment Methods</string>
+    <string name="GlobalChattv">Globle Chat</string>
+    <string name="profileNameTv">Name</string>
+    <string name="profileEmailTv">Email</string>
+    <string name="profileMobileTv">Mobile Number</string>
+    <string name="btnTextEditProfile">Edit Profile</string>
+    <string name="btnTextResetPassword">Reset Password</string>
+    <string name="btnDonationHistory">My Donation History</string>
+    <string name="btnTextLogout">Logout</string>
 
 
 </resources>
