@@ -1,7 +1,10 @@
 package com.example.kindly
 
+import android.app.AlertDialog
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +20,10 @@ class EditProfileFragment : Fragment() {
 
     private val db = FirebaseFirestore.getInstance()
     private val auth = FirebaseAuth.getInstance()
+
+
+    private var currentUser = FirebaseAuth.getInstance().currentUser
+    private var userDocRef = FirebaseFirestore.getInstance().collection("users").document(currentUser!!.uid)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -107,12 +114,49 @@ class EditProfileFragment : Fragment() {
 
                 }.addOnFailureListener{ e ->
                     // Handle the error if the update fails
+                    val context = requireContext() // or use 'activity' if required
+                    val message = "Update Failed"
+                    val duration = Toast.LENGTH_SHORT // or Toast.LENGTH_LONG
+
+                    val toast = Toast.makeText(context, message, duration)
+                    toast.show()
 
                 }
             }
         }
 
+        val btnDeleteUser = view.findViewById<Button>(R.id.btnDeleteProfile)
+
+        btnDeleteUser.setOnClickListener {
+            performDeleteUser()
+        }
+
         return view
+    }
+
+    private fun performDeleteUser() {
+        // show a confirmation dialog to user
+        AlertDialog.Builder(requireContext())
+            .setTitle("Delete User Account")
+            .setMessage("Are you sure you want to delete your account?")
+            .setPositiveButton("Yes, I'm Sure"){_, _ ->
+                // delete user from database and sign out the user
+                userDocRef.delete()
+                    .addOnSuccessListener {
+                        Toast.makeText(context, "Account Deleted Successfully", Toast.LENGTH_SHORT).show()
+                        auth.signOut()
+
+                        val intent = Intent(requireContext(), LoginActivity::class.java)
+                        startActivity(intent)
+                        requireActivity().finish()
+                    }
+                    .addOnFailureListener{ e ->
+                        Log.e(ContentValues.TAG, "Error deleting user document", e)
+                        Toast.makeText(context, "Failed to delete account", Toast.LENGTH_SHORT).show()
+                    }
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 
 
