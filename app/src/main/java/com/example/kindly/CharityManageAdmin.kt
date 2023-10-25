@@ -42,7 +42,9 @@ class CharityManageAdmin : AppCompatActivity() {
                 }
 
                 charityAdapter.updateData(charityList, charityKeys)
+                charityAdapter.notifyDataSetChanged() // Call notifyDataSetChanged() here
             }
+
 
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(this@CharityManageAdmin, "Database error: ${error.message}", Toast.LENGTH_SHORT).show()
