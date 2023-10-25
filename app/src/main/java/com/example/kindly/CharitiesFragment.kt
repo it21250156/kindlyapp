@@ -49,3 +49,4 @@ class CharitiesFragment : Fragment() {
         return view
     }
 }
+
