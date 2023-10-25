@@ -67,6 +67,7 @@
     <string name="TopicPostTv">Post Topic</string>
     <string name="PickImageBtn">"Pick an Image "</string>
     <string name="tvRecentDonations">Recent Donations</string>
+    <string name="AddedPostsTv">Added Posts</string>
 
 
 </resources>

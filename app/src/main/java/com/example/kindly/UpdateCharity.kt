@@ -2,20 +2,33 @@ package com.example.kindly
 
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.example.kindly.backend.CharityDB
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 import com.squareup.picasso.Picasso
 
 class UpdateCharity : AppCompatActivity() {
     private lateinit var charityId: String
     private val database = FirebaseDatabase.getInstance()
     private val charitiesRef = database.getReference("charities")
-    private var imageUri: String? = null
+    private lateinit var storageReference: StorageReference
+    private lateinit var imageView: ImageView
+    private var imageUri: Uri? = null
+
+    companion object {
+        private const val PICK_IMAGE_REQUEST = 1
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +40,7 @@ class UpdateCharity : AppCompatActivity() {
         val contact = intent.getStringExtra("contact")
         val email = intent.getStringExtra("email")
         val description = intent.getStringExtra("description")
-        imageUri = intent.getStringExtra("imageUri") // Retrieve imageUri here
+        imageUri = Uri.parse(intent.getStringExtra("imageUri")) // Retrieve imageUri here
         charityId = intent.getStringExtra("charityId").toString()
 
         val nameEditText = findViewById<EditText>(R.id.edtText_admin_CharName)
@@ -35,7 +48,7 @@ class UpdateCharity : AppCompatActivity() {
         val contactEditText = findViewById<EditText>(R.id.edtText_admin_char_contact)
         val emailEditText = findViewById<EditText>(R.id.edtText_admin_char_email)
         val descriptionEditText = findViewById<EditText>(R.id.edtText_admin_char_description)
-        val imageView = findViewById<ImageView>(R.id.iv_admin_char_img)
+        imageView = findViewById<ImageView>(R.id.iv_admin_char_img)
 
         nameEditText.setText(name)
         addressEditText.setText(address)
@@ -43,12 +56,17 @@ class UpdateCharity : AppCompatActivity() {
         emailEditText.setText(email)
         descriptionEditText.setText(description)
 
-        if (!imageUri.isNullOrBlank()) {
+        if (imageUri != null) {
             Picasso.get().load(imageUri).into(imageView)
         }
 
         val updateButton = findViewById<Button>(R.id.BtnUpdateCharity)
         val deleteButton = findViewById<Button>(R.id.btnDelete)
+        val pickImageButton = findViewById<Button>(R.id.btnPickImage)
+
+        pickImageButton.setOnClickListener {
+            pickImage()
+        }
 
         updateButton.setOnClickListener {
             val updatedName = nameEditText.text.toString()
@@ -57,7 +75,15 @@ class UpdateCharity : AppCompatActivity() {
             val updatedEmail = emailEditText.text.toString()
             val updatedDescription = descriptionEditText.text.toString()
 
-            updateCharityData(charityId, updatedName, updatedAddress, updatedContact, updatedEmail, updatedDescription)
+            if (updatedName.isNotBlank() && updatedAddress.isNotBlank() && updatedContact.isNotBlank() && updatedEmail.isNotBlank() && updatedDescription.isNotBlank()) {
+                if (imageUri != null) {
+                    uploadImageAndUpdateCharity(charityId, updatedName, updatedAddress, updatedContact, updatedEmail, updatedDescription)
+                } else {
+                    updateCharityData(charityId, updatedName, updatedAddress, updatedContact, updatedEmail, updatedDescription, "")
+                }
+            } else {
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            }
         }
 
         deleteButton.setOnClickListener {
@@ -65,7 +91,46 @@ class UpdateCharity : AppCompatActivity() {
         }
     }
 
-    private fun updateCharityData(charityId: String, name: String, address: String, contact: String, email: String, description: String) {
+    private fun pickImage() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        try {
+            startActivityForResult(intent, PICK_IMAGE_REQUEST)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(this, "No gallery app found", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+            imageUri = data.data
+            if (imageUri != null) {
+                Picasso.get().load(imageUri).into(imageView)
+            }
+        }
+    }
+
+    private fun uploadImageAndUpdateCharity(charityId: String, name: String, address: String, contact: String, email: String, description: String) {
+        storageReference = FirebaseStorage.getInstance().reference
+        val imageName = "charity_image_${System.currentTimeMillis()}.jpg"
+        val imageRef = storageReference.child("charity_images/$imageName")
+
+        val uploadTask: UploadTask = imageRef.putFile(imageUri!!)
+        uploadTask.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                imageRef.downloadUrl.addOnSuccessListener { uri ->
+                    val imageUrl = uri.toString()
+                    updateCharityData(charityId, name, address, contact, email, description, imageUrl)
+                }
+            } else {
+                val error = task.exception?.message
+                Toast.makeText(this, "Error occurred while uploading image: $error", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun updateCharityData(charityId: String, name: String, address: String, contact: String, email: String, description: String, imageUrl: String) {
         val charityRef = charitiesRef.child(charityId)
 
         // Update the specific fields in Firebase Realtime Database
@@ -74,6 +139,8 @@ class UpdateCharity : AppCompatActivity() {
         charityRef.child("contact").setValue(contact)
         charityRef.child("email").setValue(email)
         charityRef.child("description").setValue(description)
+        // Update the image URI
+        charityRef.child("imageUri").setValue(imageUrl)
 
         Toast.makeText(this, "Update Successful", Toast.LENGTH_SHORT).show()
         finish()
