@@ -59,6 +59,7 @@
     <string name="btnTextLogout">Logout</string>
     <string name="feedImg">Feed Img</string>
     <string name="logoImg">Logo Img</string>
+    <string name="tvRequestFootNote">Our team will respond to you as soon as possible.</string>
 
 
 </resources>
