@@ -57,7 +57,8 @@
     <string name="btnTextResetPassword">Reset Password</string>
     <string name="btnDonationHistory">My Donation History</string>
     <string name="btnTextLogout">Logout</string>
-
+    <string name="feedImg">Feed Img</string>
+    <string name="logoImg">Logo Img</string>
 
 
 </resources>

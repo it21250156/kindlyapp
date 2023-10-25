@@ -6,13 +6,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CharitiesFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <ImageView
+        android:id="@+id/imgView_feed"
+        android:contentDescription="@string/logoImg"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/header_shape">
-
-    </ImageView>
+        android:src="@drawable/header_shape" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,10 +32,11 @@
                 android:id="@+id/imgView_profileLogo"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:contentDescription="@string/logoImg"
                 android:src="@drawable/imgapplogo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></ImageView>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_profile"
@@ -49,7 +49,7 @@
                 android:text="@string/FeedTv"
                 android:textAlignment="textEnd"
                 android:textColor="@color/dark_blue"
-                android:textSize="20dp"
+                android:textSize="@dimen/txt20"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
