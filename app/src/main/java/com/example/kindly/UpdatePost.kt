@@ -2,12 +2,14 @@ package com.example.kindly
 
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import com.example.kindly.backend.Post
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 
@@ -16,6 +18,11 @@ class UpdatePost : AppCompatActivity() {
     private val database = FirebaseDatabase.getInstance()
     private val postsRef = database.getReference("posts")
     private var imageUri: String? = null
+    private lateinit var imageView: ImageView // Declare imageView here
+
+    companion object {
+        private const val PICK_IMAGE_REQUEST = 1
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +36,7 @@ class UpdatePost : AppCompatActivity() {
 
         val nameEditText = findViewById<EditText>(R.id.edtText_post_name_update)
         val descriptionEditText = findViewById<EditText>(R.id.edtText_post_description_update)
-        val imageView = findViewById<ImageView>(R.id.ivAdminPostUpdateimg)
+        imageView = findViewById<ImageView>(R.id.ivAdminPostUpdateimg) // Initialize imageView
 
         nameEditText.setText(postName)
         descriptionEditText.setText(postDescription)
@@ -40,6 +47,11 @@ class UpdatePost : AppCompatActivity() {
 
         val updateButton = findViewById<Button>(R.id.btnUpdatePost)
         val deleteButton = findViewById<Button>(R.id.btnDeletePost)
+        val pickImageButton = findViewById<Button>(R.id.btnPickImage)
+
+        pickImageButton.setOnClickListener {
+            pickImage()
+        }
 
         updateButton.setOnClickListener {
             val updatedName = nameEditText.text.toString()
@@ -57,12 +69,37 @@ class UpdatePost : AppCompatActivity() {
         }
     }
 
+    private fun pickImage() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        try {
+            startActivityForResult(intent, PICK_IMAGE_REQUEST)
+        } catch (e: ActivityNotFoundException) {
+            Toast.makeText(this, "No gallery app found", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+            val selectedImageUri = data.data
+            if (selectedImageUri != null) {
+                // Load and display the selected image in the ImageView
+                Picasso.get().load(selectedImageUri).into(imageView)
+                // Save the selected image URI for later use when updating the post
+                imageUri = selectedImageUri.toString()
+            }
+        }
+    }
+
     private fun updatePostData(postId: String, name: String, description: String) {
         val postRef = postsRef.child(postId)
 
         // Update the specific fields in Firebase Realtime Database
         postRef.child("name").setValue(name)
         postRef.child("description").setValue(description)
+        // Update the image URI
+        postRef.child("imageUri").setValue(imageUri)
 
         Toast.makeText(this, "Update Successful", Toast.LENGTH_SHORT).show()
         finish()

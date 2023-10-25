@@ -64,6 +64,8 @@
     <string name="logoImg">Logo Img</string>
     <string name="tvRequestFootNote">Our team will respond to you as soon as possible.</string>
     <string name="hintCreditCardNo">Credit Card Number</string>
+    <string name="TopicPostTv">Post Topic</string>
+    <string name="PickImageBtn">"Pick an Image "</string>
 
     <string name="Tvdonation_history">Donation History</string>
     <string name="tvDate">03/02/22</string>
