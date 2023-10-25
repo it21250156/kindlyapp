@@ -24,22 +24,24 @@ class CharityManageAdmin : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
         val charitiesRef = database.reference.child("charities")
 
-        charityAdapter = CharityAdapter(emptyList())
+        charityAdapter = CharityAdapter(emptyList(), emptyList()) // Provide empty lists
         binding.rvCharities.layoutManager = LinearLayoutManager(this)
         binding.rvCharities.adapter = charityAdapter
 
         charitiesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val charityList = mutableListOf<CharityDB>()
+                val charityKeys = mutableListOf<String>()
 
                 for (charitySnapshot in snapshot.children) {
                     val charityData = charitySnapshot.getValue(CharityDB::class.java)
                     if (charityData != null) {
                         charityList.add(charityData)
+                        charityKeys.add(charitySnapshot.key ?: "")
                     }
                 }
 
-                charityAdapter.updateData(charityList)
+                charityAdapter.updateData(charityList, charityKeys)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -53,3 +55,4 @@ class CharityManageAdmin : AppCompatActivity() {
         startActivity(intent)
     }
 }
+

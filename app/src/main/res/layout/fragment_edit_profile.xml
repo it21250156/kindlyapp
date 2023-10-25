@@ -174,12 +174,12 @@
 
                         <Button
                             android:id="@+id/btnDeleteProfile"
-                            android:layout_width="@dimen/btnWidth"
+                            android:layout_width="@dimen/btnWidthLong"
                             android:layout_height="@dimen/btnHeight"
                             android:layout_marginTop="20dp"
                             android:layout_marginBottom="20dp"
                             android:backgroundTint="@color/red"
-                            android:text="Logout"
+                            android:text="Delete My Account"
                             android:textColor="@color/white"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
