@@ -128,8 +128,7 @@
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:text=""
-                        android:textColor="@color/dark_blue"
-                        android:textStyle="bold" />
+                        android:textColor="@color/dark_blue"/>
 
                     <TextView
                         android:id="@+id/tv_profile_email"
@@ -145,8 +144,7 @@
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:text=""
-                        android:textColor="@color/dark_blue"
-                        android:textStyle="bold" />
+                        android:textColor="@color/dark_blue" />
 
                     <TextView
                         android:id="@+id/tv_profile_mobile"
@@ -162,8 +160,7 @@
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:text=""
-                        android:textColor="@color/dark_blue"
-                        android:textStyle="bold" />
+                        android:textColor="@color/dark_blue"/>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
 
