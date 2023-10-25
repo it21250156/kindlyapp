@@ -7,13 +7,13 @@
     tools:context=".AddPost">
 
     <LinearLayout
-        android:layout_width="372dp"
-        android:layout_height="565dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="81dp"
+       android:layout_margin="20dp"
         android:orientation="vertical"
         android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -61,6 +61,25 @@
             android:textColor="@color/light_blue"
             android:textColorHighlight="@color/black" />
 
+        <TextView
+            android:id="@+id/tvCharityTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@string/TopicPostTv"
+            android:textColor="@color/light_blue"
+            android:textStyle="bold"></TextView>
+
+        <EditText
+            android:id="@+id/edtText_post_topic"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@drawable/user_edittext"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:textColor="@color/light_blue"
+            android:textColorHighlight="@color/black" />
+
 
         <TextView
             android:id="@+id/tvCharityDescription"
@@ -77,13 +96,12 @@
             android:layout_height="wrap_content"
             android:background="@drawable/user_edittext"
             android:drawablePadding="8dp"
-            android:padding="8dp"
-            android:textColor="@color/light_blue"
-            android:textColorHighlight="@color/black"
-            android:inputType="textMultiLine"
             android:gravity="top|start"
+            android:inputType="textMultiLine"
+            android:padding="8dp"
             android:scrollbars="vertical"
-            />
+            android:textColor="@color/light_blue"
+            android:textColorHighlight="@color/black" />
 
 
         <TextView
