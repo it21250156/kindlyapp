@@ -27,5 +27,6 @@
     <string name="btnUpdate">Update</string>
     <string name="PostsTv">Posts</string>
     <string name="NameCharTv">Name of the Charity</string>
+    <string name="TvAvailable_charities">Available charities</string>
 
 </resources>
