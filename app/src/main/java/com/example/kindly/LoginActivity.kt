@@ -23,10 +23,18 @@ class LoginActivity : AppCompatActivity() {
 
         val registertxt: TextView = findViewById(R.id.tv_register_now)
 
+        val charityReqtxt: TextView = findViewById(R.id.tv_sendRequest)
+
         registertxt.setOnClickListener{
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
         }
+
+        charityReqtxt.setOnClickListener{
+            val intent = Intent(this, CharityReqPage::class.java)
+            startActivity(intent)
+        }
+
 
         val loginBtn: Button = findViewById(R.id.btn_login)
 

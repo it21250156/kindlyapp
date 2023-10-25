@@ -37,6 +37,7 @@
     <string name="UpdatePostBtn">Update Post</string>
     <string name="DeletePostBtn">Delete</string>
     <string name="UpdatePostTv">Update Post</string>
+    <string name="FeedTv">Feed</string>
     <string name="hintCredict_card_number">Credict Card Number</string>
     <string name="hintCvv">CVV</string>
     <string name="Tvadd_payment_method">Add Payment Method</string>
