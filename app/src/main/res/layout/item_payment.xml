@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,44 +9,66 @@
     android:layout_margin="16dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginVertical="6dp"
-        android:orientation="vertical">
+        android:orientation="horizontal">
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_marginStart="16dp"
+            android:layout_marginVertical="6dp"
+            android:orientation="vertical">
 
-
-
-            <TextView
-                android:id="@+id/tvCardNo"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Tvcard_no"
-                android:textColor="@color/dark_blue"
-                android:layout_marginStart="8dp"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                />
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
 
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvExpdate"
+                <TextView
+                    android:id="@+id/tvCardNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Tvcard_no"
+                    android:textColor="@color/dark_blue"
+                    android:layout_marginStart="8dp"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EXP"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvExpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="EXP"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="8dp"
+                    android:textSize="15dp"
+                    />
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCVV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Tvcvv"
                 android:textColor="@color/black"
                 android:layout_marginStart="8dp"
                 android:textSize="15dp"
@@ -53,18 +76,29 @@
 
 
 
+
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvCVV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Tvcvv"
-            android:textColor="@color/black"
-            android:layout_marginStart="8dp"
-            android:textSize="15dp"
-            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/deleteBtn"
+                android:layout_width="82dp"
+                android:layout_height="76dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/delete_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
+
+
+
+
 
 </androidx.cardview.widget.CardView>
