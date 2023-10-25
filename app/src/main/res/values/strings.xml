@@ -22,6 +22,27 @@
     <string name="Tvupload_image">Upload Image</string>
     <string name="Btnadd_charity">Add Charity</string>
     <string name="BtnCancel">Cancel</string>
+    <string name="Tvupdate_charity">Update Charity</string>
+    <string name="btnDelete">Delete</string>
+    <string name="btnUpdate">Update</string>
     <string name="PostsTv">Posts</string>
     <string name="NameCharTv">Name of the Charity</string>
+    <string name="TvAvailable_charities">Available charities</string>
+
+    <string name="Tvcharity_name">Charity Name</string>
+    <string name="btnmake_a_donation">Make a donation</string>
+    <string name="Tvuser_name">User Name</string>
+    <string name="TvAmount">0.00</string>
+
+    <string name="UpdatePostBtn">Update Post</string>
+    <string name="DeletePostBtn">Delete</string>
+    <string name="UpdatePostTv">Update Post</string>
+    <string name="hintCredict_card_number">Credict Card Number</string>
+    <string name="hintCvv">CVV</string>
+    <string name="Tvadd_payment_method">Add Payment Method</string>
+    <string name="Tvcard_no">card no</string>
+    <string name="Tvcvv">CVV</string>
+    <string name="Btnmy_payment_methods">My Payment Methods</string>
+
+
 </resources>
