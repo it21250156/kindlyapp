@@ -1,7 +1,7 @@
 package com.example.kindly
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +27,17 @@ class CharitiesFragment : Fragment() {
 
         database = FirebaseDatabase.getInstance()
         val charitiesRef = database.reference.child("charities")
+
+        charityAdapter.setOnItemClickListener(object : CharityUserAdapter.OnItemClickListener {
+            override fun onItemClick(charity: CharityDB) {
+                // Handle item click here
+                val charityViewUserFragment = CharityViewUser.newInstance(charity)
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.frame_container, charityViewUserFragment)
+                    .addToBackStack(null)
+                    .commit()
+            }
+        })
 
         charitiesRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

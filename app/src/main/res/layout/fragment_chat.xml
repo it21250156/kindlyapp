@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ChatFragment">
 
+    <!-- Your header ImageView -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -13,82 +13,102 @@
     </ImageView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainChatCons"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/chatHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/imgView_chatLogo"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/imgapplogo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
-
-        <TextView
-            android:id="@+id/tv_chat"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/chatHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="160dp"
-            android:layout_toEndOf="@+id/imgView_chatLogo"
-            android:text="Global Chat"
-            android:textAlignment="textEnd"
-            android:textColor="@color/dark_blue"
-            android:textSize="20dp"
-            android:textStyle="bold"
+            android:layout_margin="20dp"
+            android:layout_marginTop="16dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/imgView_chatLogo"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        </TextView>
+            <!-- Your header contents -->
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imgView_chatLogo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/imgapplogo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+            <TextView
+                android:id="@+id/tv_chat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="160dp"
+                android:layout_toEndOf="@+id/imgView_chatLogo"
+                android:text="Global Chat"
+                android:textAlignment="textEnd"
+                android:textColor="@color/dark_blue"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/imgView_chatLogo"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chatHeader">
+
+            <EditText
+                android:id="@+id/editTextMessageContent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/user_edittext"
+                android:hint="Type a message"
+                android:textColorHint="@color/light_blue"
+                android:textColor="@color/dark_blue"/>
+
+            <Button
+                android:id="@+id/buttonSend"
+                android:layout_width="@dimen/btnSend"
+                android:layout_height="@dimen/btnSend"
+                android:layout_margin="3dp"
+                android:background="@drawable/baseline_send_24" />
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewChat"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_height="0dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/chat_item"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chatHeader"
-            app:reverseLayout="true" />
-
-        <EditText
-            android:id="@+id/editTextMessageContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Type a message"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerViewChat" />
-
-
-        <Button
-            android:id="@+id/buttonSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextMessageContent" />
+            app:stackFromEnd="true"
+            app:reverseLayout="true"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:listitem="@layout/chat_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</FrameLayout>
+</RelativeLayout>

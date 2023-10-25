@@ -27,32 +27,40 @@ class ProfileFragment : Fragment() {
         val btnEditProfile = view.findViewById<Button>(R.id.btn_edit_profile)
         val btnResetPassword = view.findViewById<Button>(R.id.btn_reset_password)
         val btnLogout = view.findViewById<Button>(R.id.btn_logout)
+        val btnViewPayment = view.findViewById<Button>(R.id.btnViewPayment)
 
         btnEditProfile.setOnClickListener {
             val fragment = EditProfileFragment()
             val transaction = fragmentManager?.beginTransaction()
-            transaction?.replace(R.id.frame_container,fragment)?.commit()
+            transaction?.replace(R.id.frame_container, fragment)
+            transaction?.commit()
         }
 
         btnResetPassword.setOnClickListener {
             val fragment = ResetPasswordFragment()
             val transaction = fragmentManager?.beginTransaction()
-            transaction?.replace(R.id.frame_container, fragment)?.commit()
+            transaction?.replace(R.id.frame_container, fragment)
+            transaction?.commit()
+        }
+
+        btnViewPayment.setOnClickListener {
+            val fragment = SavedPaymentMethods()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frame_container, fragment)
+            transaction?.commit()
         }
 
         btnLogout.setOnClickListener {
-            // logout from firebase
+            // logout from Firebase
             auth.signOut()
 
-            //back to login
+            // back to login
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
 
-
-            // to prevent user from going back
+            // to prevent the user from going back
             activity?.finish()
         }
-
 
         // Get the currently authenticated user
         val user = auth.currentUser
@@ -99,7 +107,6 @@ class ProfileFragment : Fragment() {
                 } else {
                     // The document does not exist
                     Toast.makeText(context, "User not found.", Toast.LENGTH_LONG).show()
-
                 }
             }.addOnFailureListener { exception ->
                 // Handle the error
@@ -110,8 +117,6 @@ class ProfileFragment : Fragment() {
             Toast.makeText(context, "User is not authenticated. Please log in.", Toast.LENGTH_LONG).show()
         }
 
-
         return view
     }
-
 }
