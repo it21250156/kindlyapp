@@ -8,18 +8,19 @@
     tools:context=".CharityReqPage">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
         app:cardElevation="15dp"
+        android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="372dp"
-            android:layout_height="565dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="20dp"
@@ -156,17 +157,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                app:cardCornerRadius="10dp">
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
 
                 <TextView
                     android:id="@+id/tvFootNote"
-                    android:layout_width="311dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/red"
                     android:padding="10dp"
                     android:text="@string/tvRequestFootNote"
                     android:textAlignment="center"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/red" />
 
 
 
