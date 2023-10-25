@@ -141,18 +141,18 @@
 
     </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/btnDonate"
-            android:layout_width="@dimen/btnWidthLong"
-            android:layout_height="@dimen/btnHeight"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/dark_blue"
-            android:text="@string/btnmake_a_donation"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView9"></Button>
+    <Button
+        android:id="@+id/btnDonate"
+        android:layout_width="@dimen/btnWidthLong"
+        android:layout_height="@dimen/btnHeight"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/dark_blue"
+        android:text="@string/btnmake_a_donation"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView9" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
