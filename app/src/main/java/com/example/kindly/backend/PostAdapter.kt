@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kindly.R
-import com.example.kindly.UpdateCharity
 import com.example.kindly.UpdatePost
 import com.squareup.picasso.Picasso
 

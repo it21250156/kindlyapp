@@ -1,3 +1,4 @@
+// PostManageAdmin.kt
 package com.example.kindly
 
 import android.content.Intent
@@ -23,24 +24,24 @@ class PostManageAdmin : AppCompatActivity() {
         database = FirebaseDatabase.getInstance()
         val postsRef = database.reference.child("posts")
 
-        postAdapter = PostAdapter(emptyList(), emptyList()) // Provide empty lists for posts and keys
+        postAdapter = PostAdapter(emptyList(), emptyList())
         binding.rvPosts.layoutManager = LinearLayoutManager(this)
         binding.rvPosts.adapter = postAdapter
 
         postsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val postList = mutableListOf<Post>()
-                val postKeys = mutableListOf<String>() // List to store the keys
+                val postKeys = mutableListOf<String>()
 
                 for (postSnapshot in snapshot.children) {
                     val postData = postSnapshot.getValue(Post::class.java)
                     if (postData != null) {
                         postList.add(postData)
-                        postKeys.add(postSnapshot.key ?: "") // Store the key
+                        postKeys.add(postSnapshot.key ?: "")
                     }
                 }
 
-                postAdapter.updateData(postList, postKeys) // Update the adapter with posts and keys
+                postAdapter.updateData(postList, postKeys)
             }
 
             override fun onCancelled(error: DatabaseError) {
