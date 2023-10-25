@@ -95,7 +95,6 @@
             android:layout_height="35dp"
             android:background="@drawable/user_edittext"
             android:drawablePadding="8dp"
-            android:inputType="phone"
             android:padding="8dp"
             android:textColor="@color/light_blue"
             android:textColorHighlight="@color/black" />
@@ -115,7 +114,6 @@
             android:layout_height="35dp"
             android:background="@drawable/user_edittext"
             android:drawablePadding="8dp"
-            android:inputType="textPassword"
             android:padding="8dp"
             android:textColor="@color/light_blue"
             android:textColorHighlight="@color/black" />
