@@ -38,6 +38,32 @@
     <string name="DeletePostBtn">Delete</string>
     <string name="UpdatePostTv">Update Post</string>
     <string name="FeedTv">Feed</string>
+    <string name="hintCredict_card_number">Credict Card Number</string>
+    <string name="hintCvv">CVV</string>
+    <string name="Tvadd_payment_method">Add Payment Method</string>
+    <string name="Tvcard_no">card no</string>
+    <string name="Tvcvv">CVV</string>
+    <string name="Btnmy_payment_methods">My Payment Methods</string>
+
+    <string name="Tvmobile_no">Mobile No</string>
+    <string name="TVamontStr">Amont</string>
+    <string name="BtnDonate">Donate</string>
+
+    <string name="GlobalChattv">Globle Chat</string>
+    <string name="profileNameTv">Name</string>
+    <string name="profileEmailTv">Email</string>
+    <string name="profileMobileTv">Mobile Number</string>
+    <string name="btnTextEditProfile">Edit Profile</string>
+    <string name="btnTextResetPassword">Reset Password</string>
+    <string name="btnDonationHistory">My Donation History</string>
+    <string name="btnTextLogout">Logout</string>
+
+    <string name="Tvchoose_a_payment_method">Choose a payment method</string>
+
+    <string name="feedImg">Feed Img</string>
+    <string name="logoImg">Logo Img</string>
+    <string name="tvRequestFootNote">Our team will respond to you as soon as possible.</string>
+
 
 
 </resources>

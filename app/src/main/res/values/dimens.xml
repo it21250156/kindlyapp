@@ -3,4 +3,7 @@
     <dimen name="btnWidth">150dp</dimen>
     <dimen name="btnHeight">50dp</dimen>
     <dimen name="btnWidthLong">250dp</dimen>
+    <dimen name="btnSend">30dp</dimen>
+    <dimen name="txt20">20dp</dimen>
+    <dimen name="txt12">12dp</dimen>
 </resources>
