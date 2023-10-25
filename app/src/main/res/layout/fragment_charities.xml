@@ -14,9 +14,10 @@
 
     </ImageView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/profileHeader"
@@ -44,11 +45,12 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="160dp"
                 android:layout_toEndOf="@+id/imgView_profileLogo"
-                android:text="@string/TvAvailable_charities"
+                android:text="@string/tvAvailableCharities"
                 android:textAlignment="textEnd"
                 android:textColor="@color/dark_blue"
                 android:textSize="20dp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/imgView_profileLogo"
@@ -56,51 +58,18 @@
 
             </TextView>
 
-            <EditText
-                android:id="@+id/editText_welcome_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_profile"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="130dp"
-                android:layout_toEndOf="@+id/imgView_profileLogo"
-                android:background="@null"
-                android:shadowColor="@color/black"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="5"
-                android:text=""
-                android:textAlignment="textEnd"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.9"
-                app:layout_constraintStart_toEndOf="@+id/imgView_profileLogo"
-                app:layout_constraintTop_toBottomOf="@+id/tv_profile"
-                app:layout_constraintVertical_bias="0.0">
-
-            </EditText>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="800dp"
-            android:padding="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profileHeader"
-            app:layout_constraintVertical_bias="0.0">
+            android:layout_height="match_parent"
+            android:padding="5dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -123,7 +92,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
 </FrameLayout>
