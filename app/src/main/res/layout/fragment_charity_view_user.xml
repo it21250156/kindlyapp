@@ -60,57 +60,52 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView9"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileHeader">
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:padding="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
                     <ImageView
                         android:id="@+id/ivImage"
-                        android:layout_width="300dp"
+                        android:layout_width="match_parent"
                         android:layout_height="250dp"
+                        android:scaleType="centerCrop"
+                        android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/baseline_image_24" />
 
                     <TextView
                         android:id="@+id/tvDescription"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="10dp"
                         android:layout_below="@id/ivImage"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="8dp"
                         android:text="@string/TvCharity_description"
                         android:textColor="@color/black"
-                        android:textSize="15sp" />
-                </RelativeLayout>
+                        android:textSize="@dimen/txt12" />
 
             </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.cardview.widget.CardView>
@@ -119,7 +114,7 @@
         android:id="@+id/btnDonate"
         android:layout_width="@dimen/btnWidthLong"
         android:layout_height="@dimen/btnHeight"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/dark_blue"
         android:text="@string/btnmake_a_donation"
         android:textColor="@color/white"
@@ -132,7 +127,9 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_margin="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:backgroundTint="@color/bg_blue"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -142,34 +139,41 @@
         app:layout_constraintTop_toBottomOf="@+id/btnDonate"
         app:layout_constraintVertical_bias="0.108">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tvRecentDonations"
+            android:textSize="@dimen/txt20"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/dark_blue"
+            android:textStyle="bold"/>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCharities"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="20dp"
+            android:layout_margin="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:listitem="@layout/item_donations" />
+
+        </LinearLayout>
 
 
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:padding="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileHeader"
-        app:layout_constraintVertical_bias="0.147">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
