@@ -71,7 +71,7 @@
 
     <string name="tvRecentDonations">Recent Donations</string>
     <string name="tvAvailableCharities">Available Charities</string>
-
+    <string name="Tvexp">MM/YY</string>
 
 
 </resources>
