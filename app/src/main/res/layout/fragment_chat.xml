@@ -100,6 +100,7 @@
             android:id="@+id/recyclerViewChat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
