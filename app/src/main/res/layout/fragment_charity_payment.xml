@@ -81,6 +81,37 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/Tvchoose_a_payment_method"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Spinner
+                android:id="@+id/paymentMethod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/user_edittext"
+                android:drawablePadding="8dp"
+                android:padding="8dp"
+                android:textColor="@color/light_blue"
+                android:textColorHighlight="@color/black"
+                android:textColorHint="@color/light_blue">
+
+            </Spinner>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/TVamontStr"
                     android:textColor="@color/dark_blue"
                     android:textSize="20sp"
@@ -101,12 +132,13 @@
                 android:background="@drawable/user_edittext"
                 android:drawablePadding="8dp"
                 android:hint="@string/TvAmount"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:padding="8dp"
                 android:textColor="@color/light_blue"
                 android:textColorHighlight="@color/black"
                 android:textColorHint="@color/light_blue"
                 android:textSize="14sp" />
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

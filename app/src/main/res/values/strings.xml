@@ -57,9 +57,13 @@
     <string name="btnTextResetPassword">Reset Password</string>
     <string name="btnDonationHistory">My Donation History</string>
     <string name="btnTextLogout">Logout</string>
+
+    <string name="Tvchoose_a_payment_method">Choose a payment method</string>
+
     <string name="feedImg">Feed Img</string>
     <string name="logoImg">Logo Img</string>
     <string name="tvRequestFootNote">Our team will respond to you as soon as possible.</string>
+
 
 
 </resources>
