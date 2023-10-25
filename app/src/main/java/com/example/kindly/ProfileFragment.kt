@@ -28,6 +28,7 @@ class ProfileFragment : Fragment() {
         val btnResetPassword = view.findViewById<Button>(R.id.btn_reset_password)
         val btnLogout = view.findViewById<Button>(R.id.btn_logout)
         val btnViewPayment = view.findViewById<Button>(R.id.btnViewPayment)
+        val btnProfileDonationHistory = view.findViewById<Button>(R.id.btn_profile_donation_history)
 
         btnEditProfile.setOnClickListener {
             val fragment = EditProfileFragment()
@@ -51,15 +52,22 @@ class ProfileFragment : Fragment() {
         }
 
         btnLogout.setOnClickListener {
-            // logout from Firebase
+            // Logout from Firebase
             auth.signOut()
 
-            // back to login
+            // Return to the login screen
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
 
-            // to prevent the user from going back
+            // To prevent the user from going back
             activity?.finish()
+        }
+
+        btnProfileDonationHistory.setOnClickListener {
+            val fragment = DonationHistory()
+            val transaction = fragmentManager?.beginTransaction()
+            transaction?.replace(R.id.frame_container, fragment)
+            transaction?.commit()
         }
 
         // Get the currently authenticated user
