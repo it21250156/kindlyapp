@@ -71,9 +71,13 @@
 
     <string name="tvRecentDonations">Recent Donations</string>
     <string name="tvAvailableCharities">Available Charities</string>
+
+    <string name="Tvexp">MM/YY</string>
+
     <string name="tvColDate">Date</string>
     <string name="tvColCharity">Charity</string>
     <string name="tvColAmount">Amount</string>
+
 
 
 </resources>

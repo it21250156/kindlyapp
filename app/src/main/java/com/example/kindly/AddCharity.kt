@@ -14,6 +14,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
+import java.util.regex.Pattern
 
 class AddCharity : AppCompatActivity() {
     private val PICK_IMAGE_REQUEST = 1
@@ -45,8 +46,19 @@ class AddCharity : AppCompatActivity() {
             val email = binding.edtTextAdminCharEmail.text.toString()
             val description = binding.edtTextAdminCharDescription.text.toString()
 
-            if (name.isEmpty() || address.isEmpty() || contact.isEmpty() || email.isEmpty() || description.isEmpty()) {
+            if (name.isEmpty() || address.isEmpty() || description.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Validate contact and email fields
+            if (!isValidContact(contact)) {
+                Toast.makeText(this, "Invalid contact number. It should be a 10-digit number.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (!isValidEmail(email)) {
+                Toast.makeText(this, "Invalid email address.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -103,5 +115,18 @@ class AddCharity : AppCompatActivity() {
         val intent = Intent(this, CharityManageAdmin::class.java)
         startActivity(intent)
     }
+
+    private fun isValidContact(contact: String): Boolean {
+        // Use a regular expression to validate a 10-digit number
+        val regex = "^[0-9]{10}$"
+        return Pattern.matches(regex, contact)
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        // Use a regular expression to validate an email address
+        val regex = "^[A-Za-z0-9+_.-]+@(.+)$"
+        return Pattern.matches(regex, email)
+    }
 }
+
 
