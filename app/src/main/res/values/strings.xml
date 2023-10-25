@@ -31,5 +31,6 @@
     <string name="UpdatePostBtn">Update Post</string>
     <string name="DeletePostBtn">Delete</string>
     <string name="UpdatePostTv">Update Post</string>
+    <string name="FeedTv">Feed</string>
 
 </resources>
