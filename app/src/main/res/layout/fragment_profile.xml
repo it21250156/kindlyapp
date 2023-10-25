@@ -225,13 +225,13 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="20dp">
+                        android:paddingBottom="10dp">
 
                         <Button
                             android:id="@+id/btnViewPayment"
                             android:layout_width="@dimen/btnWidthLong"
                             android:layout_height="@dimen/btnHeight"
-                            android:backgroundTint="@color/dark_blue"
+                            android:backgroundTint="@color/light_blue"
                             android:text="@string/Btnmy_payment_methods"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
