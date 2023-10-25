@@ -19,14 +19,14 @@ class FeedFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_feed, container, false) // Use the layout from CharitiesFragment
-        val rvPosts: RecyclerView = view.findViewById(R.id.rvFeed) // Make sure to update this to your actual RecyclerView ID
+        val view = inflater.inflate(R.layout.fragment_feed, container, false)
+        val rvPosts: RecyclerView = view.findViewById(R.id.rvFeed)
         rvPosts.layoutManager = LinearLayoutManager(requireContext())
         postAdapter = PostUserAdapter(ArrayList())
         rvPosts.adapter = postAdapter
 
         database = FirebaseDatabase.getInstance()
-        val postsRef = database.reference.child("posts") // Update this to match your actual Firebase structure
+        val postsRef = database.reference.child("posts")
 
         postsRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
