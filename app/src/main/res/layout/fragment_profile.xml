@@ -118,7 +118,7 @@
                         android:id="@+id/tv_profile_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Name"
+                        android:text="@string/profileNameTv"
                         android:textColor="@color/light_blue"
                         android:textStyle="bold" />
 
@@ -134,7 +134,7 @@
                         android:id="@+id/tv_profile_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Email"
+                        android:text="@string/profileEmailTv"
                         android:textColor="@color/light_blue"
                         android:textStyle="bold" />
 
@@ -150,7 +150,7 @@
                         android:id="@+id/tv_profile_mobile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Mobile No"
+                        android:text="@string/profileMobileTv"
                         android:textColor="@color/light_blue"
                         android:textStyle="bold" />
 
@@ -174,9 +174,9 @@
                             android:layout_width="@dimen/btnWidth"
                             android:layout_height="@dimen/btnHeight"
                             android:backgroundTint="@color/bg_blue"
-                            android:text="Edit Profile"
+                            android:text="@string/btnTextEditProfile"
                             android:textColor="@color/black"
-                            android:textSize="12dp"
+                            android:textSize="@dimen/txt12"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toStartOf="@+id/btn_reset_password"
@@ -189,9 +189,9 @@
                             android:layout_width="@dimen/btnWidth"
                             android:layout_height="@dimen/btnHeight"
                             android:backgroundTint="@color/bg_blue"
-                            android:text="Reset Password"
+                            android:text="@string/btnTextResetPassword"
                             android:textColor="@color/black"
-                            android:textSize="12dp"
+                            android:textSize="@dimen/txt12"
                             android:textStyle="bold"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -212,28 +212,25 @@
                         <Button
                             android:id="@+id/btn_profile_donation_history"
                             android:layout_width="@dimen/btnWidthLong"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/btnHeight"
                             android:backgroundTint="@color/dark_blue"
-                            android:text="My Donation History"
+                            android:text="@string/btnDonationHistory"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"></Button>
-
-
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="20dp"
                         android:paddingBottom="20dp">
 
                         <Button
                             android:id="@+id/btnViewPayment"
                             android:layout_width="@dimen/btnWidthLong"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/btnHeight"
                             android:backgroundTint="@color/dark_blue"
                             android:text="@string/Btnmy_payment_methods"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -241,8 +238,6 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
-
-
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -250,25 +245,14 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="20dp"
-                        android:paddingBottom="20dp">
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingTop="20dp"
                         android:paddingBottom="20dp">
 
                         <Button
                             android:id="@+id/btn_logout"
                             android:layout_width="@dimen/btnWidth"
-                            android:layout_height="wrap_content"
+                            android:layout_height="@dimen/btnHeight"
                             android:backgroundTint="@color/red"
-                            android:text="Logout"
+                            android:text="@string/btnTextLogout"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
