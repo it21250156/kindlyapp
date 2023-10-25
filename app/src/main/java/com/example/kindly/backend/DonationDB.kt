@@ -1,11 +1,14 @@
 package com.example.kindly.backend
 
+// DonationDB data class with a paymentMethod field
 data class DonationDB(
-    val userId: String = "", // The user's ID
+    val userId: String = "",
     val charityName: String = "",
-    val userName: String = "", // You need to fetch the user's name
-    val donationAmount: Double = 0.0, // Store the amount as a double
+    val userName: String = "",
+    val donationAmount: Double = 0.0,
     val donationDate: String = "",
-    val checked: Boolean = false // Store the checkbox state as a boolean
+    val recurring: Boolean = false,
+    val paymentMethod: String = ""
 )
+
 

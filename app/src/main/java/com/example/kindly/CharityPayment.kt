@@ -4,17 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.kindly.backend.DonationDB
+import com.example.kindly.backend.PaymentMethodDB
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.*
+import com.google.firebase.firestore.FirebaseFirestore
 
 class CharityPayment : Fragment() {
 
@@ -24,10 +23,12 @@ class CharityPayment : Fragment() {
     private lateinit var amountEditText: EditText
     private lateinit var recurringCheckBox: CheckBox
     private lateinit var donateButton: Button
+    private lateinit var paymentMethodSpinner: Spinner
 
     private val userId: String = FirebaseAuth.getInstance().currentUser?.uid ?: ""
     private val userName: String = FirebaseAuth.getInstance().currentUser?.displayName ?: ""
     private val donationsRef = FirebaseDatabase.getInstance().getReference("donations")
+    private val paymentMethodsCollection = FirebaseFirestore.getInstance().collection("payment_methods")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +42,7 @@ class CharityPayment : Fragment() {
         amountEditText = view.findViewById(R.id.EtAmount)
         recurringCheckBox = view.findViewById(R.id.recuring)
         donateButton = view.findViewById(R.id.btnDonate)
+        paymentMethodSpinner = view.findViewById(R.id.paymentMethod)
 
         val charityName = arguments?.getString("charityName")
         val charityEmail = arguments?.getString("charityEmail")
@@ -50,6 +52,9 @@ class CharityPayment : Fragment() {
         emailTextView.text = charityEmail
         mobileNoTextView.text = charityMobile
 
+        // Fetch payment methods from Firestore and populate the spinner
+        fetchPaymentMethods()
+
         donateButton.setOnClickListener {
             donateToCharity(charityName ?: "", charityEmail ?: "", charityMobile ?: "")
         }
@@ -57,8 +62,34 @@ class CharityPayment : Fragment() {
         return view
     }
 
+    private fun fetchPaymentMethods() {
+        paymentMethodsCollection.get()
+            .addOnSuccessListener { result ->
+                if (!result.isEmpty) {
+                    val paymentMethods = result.toObjects(PaymentMethodDB::class.java)
+                    // Now you have payment methods, you can set up your spinner with these data.
+                    setupSpinner(paymentMethods)
+                } else {
+                    // Handle the case where no payment methods are found.
+                }
+            }
+            .addOnFailureListener { exception ->
+                // Handle the error case.
+            }
+    }
+
+    private fun setupSpinner(paymentMethods: List<PaymentMethodDB>) {
+        val cardNumbers = paymentMethods.map { it.cardNumber }
+
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, cardNumbers)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        paymentMethodSpinner.adapter = adapter
+    }
+
     private fun donateToCharity(charityName: String, charityEmail: String, charityMobile: String) {
         val donationAmountText = amountEditText.text.toString()
+        val selectedPaymentMethod = paymentMethodSpinner.selectedItem.toString()
 
         if (donationAmountText.isEmpty()) {
             amountEditText.error = "Amount is required."
@@ -82,7 +113,8 @@ class CharityPayment : Fragment() {
             userName,     // Corrected: User name should be here
             donationAmount,
             date,
-            recurringCheckBox.isChecked
+            recurringCheckBox.isChecked,
+            selectedPaymentMethod // Include selected payment method
         )
 
         // Insert the donation data into the Firebase Realtime Database
@@ -105,5 +137,4 @@ class CharityPayment : Fragment() {
                 }
             }
     }
-
 }
