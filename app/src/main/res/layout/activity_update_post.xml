@@ -61,7 +61,6 @@
             android:textColor="@color/light_blue"
             android:textColorHighlight="@color/black" />
 
-
         <TextView
             android:id="@+id/tvCharityDescription"
             android:layout_width="wrap_content"
@@ -82,25 +81,23 @@
             android:textColorHighlight="@color/black"
             android:inputType="textMultiLine"
             android:gravity="top|start"
-            android:scrollbars="vertical"
-            />
+            android:scrollbars="vertical" />
 
-
-        <TextView
-            android:id="@+id/tvAddImage"
+        <Button
+            android:id="@+id/btnPickImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp"
-            android:text="@string/AddImageTv"
-            android:textColor="@color/light_blue"
-            android:textStyle="bold"></TextView>
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/light_blue"
+            android:text="@string/PickImageBtn"
+            android:textSize="14sp" />
 
         <ImageView
             android:id="@+id/ivAdminPostUpdateimg"
             android:layout_width="70dp"
             android:layout_height="50dp"
             app:srcCompat="@drawable/baseline_image_24" />
-
 
         <Button
             android:id="@+id/btnUpdatePost"
@@ -110,7 +107,7 @@
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/dark_blue"
             android:text="@string/UpdatePostBtn"
-            android:textSize="14sp"></Button>
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btnDeletePost"
@@ -120,7 +117,7 @@
             android:layout_marginTop="30dp"
             android:backgroundTint="@color/red"
             android:text="@string/DeletePostBtn"
-            android:textSize="14sp"></Button>
+            android:textSize="14sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
