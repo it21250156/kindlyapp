@@ -44,6 +44,9 @@
     <string name="Tvcard_no">card no</string>
     <string name="Tvcvv">CVV</string>
     <string name="Btnmy_payment_methods">My Payment Methods</string>
+    <string name="Tvmobile_no">Mobile No</string>
+    <string name="TVamontStr">Amont</string>
+    <string name="BtnDonate">Donate</string>
 
 
 </resources>
