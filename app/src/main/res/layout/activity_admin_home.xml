@@ -6,30 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".AdminHomeActivity">
 
-    <Button
-        android:id="@+id/btn_admin_home_charities"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="236dp"
-        android:onClick="CharityManagement"
-        android:text="Charities"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btn_admin_home_posts"
-        android:layout_width="108dp"
-        android:layout_height="49dp"
-        android:onClick="PostManagement"
-        android:text="Posts"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_admin_home_charities"
-        app:layout_constraintVertical_bias="0.266" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/imgapplogo">
+
+        </ImageView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:backgroundTint="@color/bg_blue"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="@string/tvWelcomAdmin"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt20"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
+
+
+
+        <Button
+            android:id="@+id/btn_admin_home_charities"
+            android:layout_width="@dimen/btnWidthLong"
+            android:layout_height="@dimen/btnHeight"
+            android:backgroundTint="@color/light_blue"
+            android:onClick="CharityManagement"
+            android:text="Charities" />
+
+        <Button
+            android:id="@+id/btn_admin_home_posts"
+            android:layout_width="@dimen/btnWidthLong"
+            android:layout_height="@dimen/btnHeight"
+            android:backgroundTint="@color/light_blue"
+            android:onClick="PostManagement"
+            android:text="Posts" />
+
+
+    </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
