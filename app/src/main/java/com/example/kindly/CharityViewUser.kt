@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.kindly.backend.CharityDB
 import com.example.kindly.backend.DonationAdapter
 import com.example.kindly.backend.DonationDB
@@ -60,6 +61,13 @@ class CharityViewUser : Fragment() {
 
         tvCharityName.text = charity.name
         tvDescription.text = charity.description
+
+        // Load the image using Glide
+        Glide.with(ivImage)
+            .load(charity.imageUri)
+            .placeholder(R.drawable.baseline_image_24) // You can change the placeholder image
+            .error(R.drawable.applogo) // You can change the error image
+            .into(ivImage)
 
         // Initialize the RecyclerView
         val layoutManager = LinearLayoutManager(context)
