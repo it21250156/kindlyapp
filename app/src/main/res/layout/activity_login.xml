@@ -106,12 +106,33 @@
                     android:layout_width="@dimen/btnWidth"
                     android:layout_height="@dimen/btnHeight"
                     android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
                     android:backgroundTint="@color/dark_blue"
                     android:onClick="registeredCustomerHome"
                     android:text="Login"
                     android:textSize="14sp">
 
                 </Button>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20px"
+                    android:layout_weight="1"
+                    android:text="Are you willing to add a charity?"
+                    android:textColor="@color/light_blue"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_sendRequest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5px"
+                    android:layout_weight="1"
+                    android:text="Send a Request"
+                    android:textColor="@color/dark_blue"
+                    android:textStyle="bold" />
+
+
             </LinearLayout>
 
         </LinearLayout>
