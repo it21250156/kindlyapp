@@ -54,6 +54,9 @@ dependencies {
     // Import the Firebase BoM
     implementation(platform("com.google.firebase:firebase-bom:32.4.0"))
 
+
+    implementation("com.google.firebase:firebase-storage:20.3.0")
+
     // Add the dependency for the Firebase SDK for Google Analytics
     implementation("com.google.firebase:firebase-analytics-ktx")
 
