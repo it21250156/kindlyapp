@@ -5,15 +5,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.kindly.backend.CharityDB
-import com.google.firebase.database.*
 
 class CharityViewUser : Fragment() {
 
-    private lateinit var database: FirebaseDatabase
-    private lateinit var tvCharityName: TextView
-    private lateinit var tvDescription: TextView
+    private lateinit var charity: CharityDB
+
+    companion object {
+        fun newInstance(charity: CharityDB): CharityViewUser {
+            val fragment = CharityViewUser()
+            fragment.charity = charity
+            return fragment
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,27 +28,19 @@ class CharityViewUser : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_charity_view_user, container, false)
 
-        // Initialize your TextViews
-        tvCharityName = view.findViewById(R.id.tvCharityName)
-        tvDescription = view.findViewById(R.id.tvDescription)
+        val ivImage: ImageView = view.findViewById(R.id.ivImage)
+        val tvCharityName: TextView = view.findViewById(R.id.tvCharityName)
+        val tvDescription: TextView = view.findViewById(R.id.tvDescription)
 
-        database = FirebaseDatabase.getInstance()
-        val charityRef = database.reference.child("charities").child("charity_id") // Replace with the actual charity ID
+        tvCharityName.text = charity.name
+        tvDescription.text = charity.description
 
-        charityRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val charity = snapshot.getValue(CharityDB::class.java)
-                if (charity != null) {
-                    // Populate your TextViews with the charity data
-                    tvCharityName.text = charity.name
-                    tvDescription.text = charity.description
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Handle errors here
-            }
-        })
+        // Load the image using Glide
+        Glide.with(this)
+            .load(charity.imageUri)
+            .placeholder(R.drawable.baseline_image_24)
+            .error(R.drawable.applogo)
+            .into(ivImage)
 
         return view
     }

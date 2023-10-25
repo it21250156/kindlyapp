@@ -1,3 +1,4 @@
+
 package com.example.kindly.backend
 
 import android.graphics.drawable.Drawable
@@ -17,15 +18,29 @@ import com.example.kindly.R
 class CharityUserAdapter(private val charityList: MutableList<CharityDB>) :
     RecyclerView.Adapter<CharityUserAdapter.CharityViewHolder>() {
 
-    companion object {
-        private const val REQUEST_STORAGE_PERMISSION = 123 // Use any unique code
+    interface OnItemClickListener {
+        fun onItemClick(charity: CharityDB)
+    }
+
+    private var listener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
     }
 
     inner class CharityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.tvCharityName)
         val descriptionTextView: TextView = itemView.findViewById(R.id.tvDescription)
-        val ivImage: ImageView = itemView.findViewById(R.id.ivImage)  // Declare ivImage
-        // Add other views if needed
+        val ivImage: ImageView = itemView.findViewById(R.id.ivImage)
+
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener?.onItemClick(charityList[position])
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharityViewHolder {
@@ -74,7 +89,6 @@ class CharityUserAdapter(private val charityList: MutableList<CharityDB>) :
         return charityList.size
     }
 
-    // Add an updateData function to update the adapter data
     fun updateData(newData: List<CharityDB>) {
         charityList.clear()
         charityList.addAll(newData)
