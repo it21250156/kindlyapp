@@ -54,6 +54,7 @@ class CharityAdapter(private var charityList: List<CharityDB>, private var chari
         }
     }
 
+
     override fun getItemCount(): Int {
         return charityList.size
     }
