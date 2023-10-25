@@ -28,5 +28,9 @@
     <string name="PostsTv">Posts</string>
     <string name="NameCharTv">Name of the Charity</string>
     <string name="TvAvailable_charities">Available charities</string>
+    <string name="Tvcharity_name">Charity Name</string>
+    <string name="btnmake_a_donation">Make a donation</string>
+    <string name="Tvuser_name">User Name</string>
+    <string name="TvAmount">0.00</string>
 
 </resources>

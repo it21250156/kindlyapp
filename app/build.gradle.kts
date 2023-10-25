@@ -59,6 +59,9 @@ dependencies {
     // Add the Picasso library for image loading
     implementation("com.squareup.picasso:picasso:2.8")
 
+    implementation("com.github.bumptech.glide:glide:4.12.0") // Glide library for image loading
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0") // Glide annotation processor
+
     // TODO: Add the dependencies for any other Firebase products you want to use
     // See https://firebase.google.com/docs/android/setup#available-libraries
     // For example, add the dependencies for Firebase Authentication and Cloud Firestore
