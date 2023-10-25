@@ -4,23 +4,15 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
-    app:cardCornerRadius="8dp"
-    android:layout_margin="16dp">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginVertical="6dp"
-        android:orientation="vertical">
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-
+            android:padding="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvCharityNamePost"
@@ -28,37 +20,29 @@
                 android:layout_height="wrap_content"
                 android:text="@string/TvCharity_name"
                 android:textColor="@color/dark_blue"
-                android:layout_marginStart="8dp"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
+                android:textSize="@dimen/txt20"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/iv_admin_post_view_img"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:srcCompat="@drawable/baseline_image_24" />
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/baseline_image_24"
+                android:scaleType="centerCrop"/>
 
             <TextView
                 android:id="@+id/tvDescriptionPost"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/TvCharity_description"
                 android:textColor="@color/black"
-                android:layout_marginStart="8dp"
-                android:textSize="15dp"
+                android:textSize="@dimen/txt12"
                 />
 
         </LinearLayout>
 
-    </LinearLayout>
+
 
 </androidx.cardview.widget.CardView>

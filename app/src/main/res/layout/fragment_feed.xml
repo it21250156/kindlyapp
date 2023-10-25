@@ -25,6 +25,8 @@
             android:layout_margin="20dp"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
@@ -49,6 +51,7 @@
                 android:textColor="@color/dark_blue"
                 android:textSize="20dp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/imgView_profileLogo"
@@ -56,69 +59,41 @@
 
             </TextView>
 
-            <EditText
-                android:id="@+id/editText_welcome_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_profile"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="130dp"
-                android:layout_toEndOf="@+id/imgView_profileLogo"
-                android:background="@null"
-                android:shadowColor="@color/black"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="5"
-                android:text=""
-                android:textAlignment="textEnd"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.9"
-                app:layout_constraintStart_toEndOf="@+id/imgView_profileLogo"
-                app:layout_constraintTop_toBottomOf="@+id/tv_profile"
-                app:layout_constraintVertical_bias="0.0">
-
-            </EditText>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
+            android:layout_marginTop="4dp"
+            android:paddingTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profileHeader"
-            app:layout_constraintVertical_bias="0.147">
+            app:layout_constraintVertical_bias="0.0">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="20dp"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="8dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
 
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvFeed"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:listitem="@layout/item_post"/>
+                    tools:listitem="@layout/item_post" />
 
 
             </androidx.cardview.widget.CardView>
