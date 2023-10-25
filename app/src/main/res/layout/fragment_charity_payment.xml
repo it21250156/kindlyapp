@@ -101,12 +101,13 @@
                 android:background="@drawable/user_edittext"
                 android:drawablePadding="8dp"
                 android:hint="@string/TvAmount"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
                 android:padding="8dp"
                 android:textColor="@color/light_blue"
                 android:textColorHighlight="@color/black"
                 android:textColorHint="@color/light_blue"
                 android:textSize="14sp" />
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
