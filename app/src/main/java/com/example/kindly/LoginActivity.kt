@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
         val emailInput = email.text.toString()
         val passwordInput = password.text.toString()
 
-        if(emailInput=="admin@gmail.com" || passwordInput=="admin1234"){
+        if(emailInput=="admin@gmail.com" && passwordInput=="admin1234"){
             val intent = Intent(this,AdminHomeActivity::class.java)
             startActivity(intent)
         } else{
