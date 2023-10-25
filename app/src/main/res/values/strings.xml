@@ -81,7 +81,8 @@
     <string name="tvColCharity">Charity</string>
     <string name="tvColAmount">Amount</string>
     <string name="tvWelcomAdmin">Welcome Admin</string>
-
+    <string name="tvLabelCardNo">Card Number</string>
+    <string name="tvLabelExp">Expire Date</string>
 
 
 </resources>
