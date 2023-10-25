@@ -4,21 +4,27 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.content.ActivityNotFoundException
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.kindly.backend.Post
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 import com.squareup.picasso.Picasso
 
 class UpdatePost : AppCompatActivity() {
     private lateinit var postId: String
     private val database = FirebaseDatabase.getInstance()
     private val postsRef = database.getReference("posts")
-    private var imageUri: String? = null
+    private lateinit var storageReference: StorageReference
     private lateinit var imageView: ImageView // Declare imageView here
+    private var imageUri: Uri? = null
 
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
@@ -31,7 +37,7 @@ class UpdatePost : AppCompatActivity() {
         // Retrieve data passed from the PostAdapter (or wherever you're coming from)
         val postName = intent.getStringExtra("name")
         val postDescription = intent.getStringExtra("description")
-        imageUri = intent.getStringExtra("imageUri") // Retrieve imageUri here
+        imageUri = Uri.parse(intent.getStringExtra("imageUri")) // Retrieve imageUri here
         postId = intent.getStringExtra("postId").toString()
 
         val nameEditText = findViewById<EditText>(R.id.edtText_post_name_update)
@@ -41,7 +47,7 @@ class UpdatePost : AppCompatActivity() {
         nameEditText.setText(postName)
         descriptionEditText.setText(postDescription)
 
-        if (!imageUri.isNullOrBlank()) {
+        if (imageUri != null) {
             Picasso.get().load(imageUri).into(imageView)
         }
 
@@ -58,7 +64,11 @@ class UpdatePost : AppCompatActivity() {
             val updatedDescription = descriptionEditText.text.toString()
 
             if (updatedName.isNotBlank() && updatedDescription.isNotBlank()) {
-                updatePostData(postId, updatedName, updatedDescription)
+                if (imageUri != null) {
+                    uploadImageAndUpdatePost(postId, updatedName, updatedDescription)
+                } else {
+                    updatePostData(postId, updatedName, updatedDescription, "")
+                }
             } else {
                 Toast.makeText(this, "Name and description cannot be empty", Toast.LENGTH_SHORT).show()
             }
@@ -82,24 +92,41 @@ class UpdatePost : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
-            val selectedImageUri = data.data
-            if (selectedImageUri != null) {
+            imageUri = data.data
+            if (imageUri != null) {
                 // Load and display the selected image in the ImageView
-                Picasso.get().load(selectedImageUri).into(imageView)
-                // Save the selected image URI for later use when updating the post
-                imageUri = selectedImageUri.toString()
+                Picasso.get().load(imageUri).into(imageView)
             }
         }
     }
 
-    private fun updatePostData(postId: String, name: String, description: String) {
+    private fun uploadImageAndUpdatePost(postId: String, name: String, description: String) {
+        storageReference = FirebaseStorage.getInstance().reference
+        val imageName = "post_image_${System.currentTimeMillis()}.jpg"
+        val imageRef = storageReference.child("post_images/$imageName")
+
+        val uploadTask: UploadTask = imageRef.putFile(imageUri!!)
+        uploadTask.addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                imageRef.downloadUrl.addOnSuccessListener { uri ->
+                    val imageUrl = uri.toString()
+                    updatePostData(postId, name, description, imageUrl)
+                }
+            } else {
+                val error = task.exception?.message
+                Toast.makeText(this, "Error occurred while uploading image: $error", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun updatePostData(postId: String, name: String, description: String, imageUrl: String) {
         val postRef = postsRef.child(postId)
 
         // Update the specific fields in Firebase Realtime Database
         postRef.child("name").setValue(name)
         postRef.child("description").setValue(description)
         // Update the image URI
-        postRef.child("imageUri").setValue(imageUri)
+        postRef.child("imageUri").setValue(imageUrl)
 
         Toast.makeText(this, "Update Successful", Toast.LENGTH_SHORT).show()
         finish()

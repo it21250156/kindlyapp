@@ -66,6 +66,8 @@
     <string name="hintCreditCardNo">Credit Card Number</string>
     <string name="TopicPostTv">Post Topic</string>
     <string name="PickImageBtn">"Pick an Image "</string>
+    <string name="tvRecentDonations">Recent Donations</string>
+    <string name="AddedPostsTv">Added Posts</string>
 
     <string name="Tvdonation_history">Donation History</string>
     <string name="tvDate">03/02/22</string>
