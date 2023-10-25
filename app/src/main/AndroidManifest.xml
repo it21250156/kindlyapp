@@ -20,6 +20,11 @@
         android:theme="@style/Theme.Kindly"
         tools:targetApi="31">
 
+
+        <activity
+            android:name=".UpdatePost"
+            android:exported="false" />
+
         <activity
             android:name=".UpdateCharity"
             android:exported="false" />
