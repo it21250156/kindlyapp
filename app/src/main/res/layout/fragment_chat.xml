@@ -11,10 +11,11 @@
         android:src="@drawable/header_shape">
     </ImageView>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/mainChatCons"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/chatHeader"
@@ -63,10 +64,11 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
             android:orientation="horizontal"
+            android:layout_marginTop="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chatHeader">
@@ -74,17 +76,17 @@
             <EditText
                 android:id="@+id/editTextMessageContent"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:textSize="12dp"
+                android:layout_weight="1"
                 android:background="@drawable/user_edittext"
                 android:hint="Type a message"
+                android:paddingStart="50dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="50dp"
+                android:paddingBottom="8dp"
+                android:textColor="@color/dark_blue"
                 android:textColorHint="@color/light_blue"
-                android:textColor="@color/dark_blue"/>
+                android:textSize="12dp" />
 
             <Button
                 android:id="@+id/buttonSend"
@@ -94,18 +96,21 @@
                 android:background="@drawable/baseline_send_24" />
         </LinearLayout>
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewChat"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:stackFromEnd="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:reverseLayout="true"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:stackFromEnd="true"
             tools:listitem="@layout/chat_item" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>
