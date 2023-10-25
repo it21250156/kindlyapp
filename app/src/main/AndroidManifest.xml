@@ -13,19 +13,20 @@
         android:theme="@style/Theme.Kindly"
         tools:targetApi="31">
         <activity
-
-            android:name=".UpdateCharity"
-
+            android:name=".UpdatePost"
             android:exported="false" />
-       <activity
-          android:name=".PostManageAdmin"
+        <activity
+            android:name=".UpdateCharity"
+            android:exported="false" />
+        <activity
+            android:name=".PostManageAdmin"
             android:exported="false" />
         <activity
             android:name=".AddPost"
             android:exported="false" />
         <activity
             android:name=".CharityReqPage"
-                  android:exported="false" />
+            android:exported="false" />
         <activity
             android:name=".CharityManageAdmin"
             android:exported="false" />
