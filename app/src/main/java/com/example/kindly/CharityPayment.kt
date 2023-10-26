@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.kindly.backend.DonationDB
 import com.example.kindly.backend.PaymentMethodDB
@@ -133,7 +132,12 @@ class CharityPayment : Fragment() {
 
                     // Navigate back to the previous fragment
                     val fragmentManager = requireActivity().supportFragmentManager
-                    fragmentManager.popBackStack()
+
+                    // Navigate to the ThankYouFragment
+                    fragmentManager.beginTransaction()
+                        .replace(R.id.frame_container, ThankYouFragment())
+                        .addToBackStack(null)
+                        .commit()
                 } else {
                     // Handle the case when the insertion was not successful
                     Toast.makeText(context, "Donation failed. Please try again.", Toast.LENGTH_SHORT).show()
