@@ -54,4 +54,9 @@ class PostManageAdmin : AppCompatActivity() {
         val intent = Intent(this, AddPost::class.java)
         startActivity(intent)
     }
+
+    fun home(view: View) {
+        val intent = Intent(this, AdminHomeActivity::class.java)
+        startActivity(intent)
+    }
 }
