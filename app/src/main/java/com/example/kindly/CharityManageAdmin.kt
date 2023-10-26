@@ -56,5 +56,9 @@ class CharityManageAdmin : AppCompatActivity() {
         val intent = Intent(this, AddCharity::class.java)
         startActivity(intent)
     }
+    fun home(view: View) {
+        val intent = Intent(this, AdminHomeActivity::class.java)
+        startActivity(intent)
+    }
 }
 

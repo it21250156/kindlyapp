@@ -1,5 +1,4 @@
 package com.example.kindly
-
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.content.ActivityNotFoundException
@@ -11,7 +10,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import com.example.kindly.backend.Post
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -25,6 +23,7 @@ class UpdatePost : AppCompatActivity() {
     private lateinit var storageReference: StorageReference
     private lateinit var imageView: ImageView // Declare imageView here
     private var imageUri: Uri? = null
+    private var isNewImageSelected = false // Track if a new image is selected
 
     companion object {
         private const val PICK_IMAGE_REQUEST = 1
@@ -64,10 +63,10 @@ class UpdatePost : AppCompatActivity() {
             val updatedDescription = descriptionEditText.text.toString()
 
             if (updatedName.isNotBlank() && updatedDescription.isNotBlank()) {
-                if (imageUri != null) {
+                if (imageUri != null && isNewImageSelected) {
                     uploadImageAndUpdatePost(postId, updatedName, updatedDescription)
                 } else {
-                    updatePostData(postId, updatedName, updatedDescription, "")
+                    updatePostData(postId, updatedName, updatedDescription, imageUri.toString())
                 }
             } else {
                 Toast.makeText(this, "Name and description cannot be empty", Toast.LENGTH_SHORT).show()
@@ -93,6 +92,7 @@ class UpdatePost : AppCompatActivity() {
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
             imageUri = data.data
+            isNewImageSelected = true // A new image is selected
             if (imageUri != null) {
                 // Load and display the selected image in the ImageView
                 Picasso.get().load(imageUri).into(imageView)
@@ -125,7 +125,7 @@ class UpdatePost : AppCompatActivity() {
         // Update the specific fields in Firebase Realtime Database
         postRef.child("name").setValue(name)
         postRef.child("description").setValue(description)
-        // Update the image URI
+        // Use the provided image URI or the existing image URI
         postRef.child("imageUri").setValue(imageUrl)
 
         Toast.makeText(this, "Update Successful", Toast.LENGTH_SHORT).show()

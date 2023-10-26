@@ -58,15 +58,19 @@ class CharityViewUser : Fragment() {
         val ivImage: ImageView = view.findViewById(R.id.ivImage)
         val tvCharityName: TextView = view.findViewById(R.id.tvCharityName)
         val tvDescription: TextView = view.findViewById(R.id.tvDescription)
+        val tvEmail: TextView = view.findViewById(R.id.tvEmail)
+        val tvPhoneNo: TextView = view.findViewById(R.id.tvPhoneNo)
 
         tvCharityName.text = charity.name
         tvDescription.text = charity.description
+        tvEmail.text = charity.email
+        tvPhoneNo.text = charity.contact
 
         // Load the image using Glide
         Glide.with(ivImage)
             .load(charity.imageUri)
-            .placeholder(R.drawable.baseline_image_24) // You can change the placeholder image
-            .error(R.drawable.applogo) // You can change the error image
+            .placeholder(R.drawable.baseline_image_24)
+            .error(R.drawable.applogo)
             .into(ivImage)
 
         // Initialize the RecyclerView

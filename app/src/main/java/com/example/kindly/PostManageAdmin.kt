@@ -1,6 +1,4 @@
-// PostManageAdmin.kt
 package com.example.kindly
-
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -52,6 +50,11 @@ class PostManageAdmin : AppCompatActivity() {
 
     fun addpost(view: View) {
         val intent = Intent(this, AddPost::class.java)
+        startActivity(intent)
+    }
+
+    fun home(view: View) {
+        val intent = Intent(this, AdminHomeActivity::class.java)
         startActivity(intent)
     }
 }

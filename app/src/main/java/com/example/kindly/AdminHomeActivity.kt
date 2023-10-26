@@ -20,4 +20,8 @@ class AdminHomeActivity : AppCompatActivity() {
         val intent = Intent(this, PostManageAdmin::class.java)
         startActivity(intent)
     }
+    fun Logout(view: View) {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+    }
 }
