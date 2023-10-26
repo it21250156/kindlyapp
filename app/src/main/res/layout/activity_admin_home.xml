@@ -64,6 +64,18 @@
             android:onClick="PostManagement"
             android:text="Posts" />
 
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="@dimen/btnWidthLong"
+            android:layout_height="@dimen/btnHeight"
+            android:backgroundTint="@color/red"
+            android:onClick="Logout"
+            android:text="@string/btnTextLogout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </LinearLayout>
 

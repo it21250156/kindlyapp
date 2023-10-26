@@ -85,6 +85,11 @@
     <string name="tvLabelExp">Expire Date</string>
     <string name="tvChat">Global Chat</string>
     <string name="tvChatWarning">Don\'t share any personal information here.</string>
+    <string name="Tvthank_you">Thank You</string>
+    <string name="Tvfor_your_kind_donation">For your kind donation</string>
+    <string name="return_to_home">Return to home</string>
+    <string name="Tvkind_ly">Kind.ly</string>
+    <string name="Tvview_donation_history">View donation history</string>
 
 
 </resources>
